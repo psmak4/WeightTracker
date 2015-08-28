@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JonesWare.WeightTracker.Services.Interfaces
+namespace Jonesware.WeightTracker.Services.Interfaces
 {
 	public interface IWeighInService
 	{

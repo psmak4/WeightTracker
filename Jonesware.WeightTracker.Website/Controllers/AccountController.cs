@@ -1,6 +1,6 @@
 ﻿using Jonesware.WeightTracker.Model;
 using Jonesware.WeightTracker.Website.ViewModels.Account;
-using JonesWare.WeightTracker.Services.Interfaces;
+using Jonesware.WeightTracker.Services.Interfaces;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using System;

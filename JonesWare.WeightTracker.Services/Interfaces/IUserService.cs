@@ -1,6 +1,6 @@
 ﻿using Jonesware.WeightTracker.Model;
 
-namespace JonesWare.WeightTracker.Services.Interfaces
+namespace Jonesware.WeightTracker.Services.Interfaces
 {
 	public interface IUserService
 	{

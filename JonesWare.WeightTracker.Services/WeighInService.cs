@@ -1,6 +1,6 @@
 ﻿using Jonesware.WeightTracker.Data.Contexts;
 using Jonesware.WeightTracker.Model;
-using JonesWare.WeightTracker.Services.Interfaces;
+using Jonesware.WeightTracker.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JonesWare.WeightTracker.Services
+namespace Jonesware.WeightTracker.Services
 {
 	public class WeighInService : IWeighInService
 	{

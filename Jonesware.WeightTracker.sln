@@ -9,7 +9,7 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Jonesware.WeightTracker.Dat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jonesware.WeightTracker.Core", "Jonesware.WeightTracker.Core\Jonesware.WeightTracker.Core.csproj", "{6B296E15-A13D-4196-B38B-E5C00C2CED78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JonesWare.WeightTracker.Services", "JonesWare.WeightTracker.Services\JonesWare.WeightTracker.Services.csproj", "{70546376-0C2B-4F0D-95A4-68324CABC1D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jonesware.WeightTracker.Services", "JonesWare.WeightTracker.Services\Jonesware.WeightTracker.Services.csproj", "{70546376-0C2B-4F0D-95A4-68324CABC1D4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jonesware.WeightTracker.Model", "Jonesware.WeightTracker.Model\Jonesware.WeightTracker.Model.csproj", "{FCB9B185-F322-4F8E-BE5D-AE63C587415C}"
 EndProject

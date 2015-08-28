@@ -205,9 +205,9 @@
       <Project>{fcb9b185-f322-4f8e-be5d-ae63c587415c}</Project>
       <Name>Jonesware.WeightTracker.Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\JonesWare.WeightTracker.Services\JonesWare.WeightTracker.Services.csproj">
+    <ProjectReference Include="..\JonesWare.WeightTracker.Services\Jonesware.WeightTracker.Services.csproj">
       <Project>{70546376-0c2b-4f0d-95a4-68324cabc1d4}</Project>
-      <Name>JonesWare.WeightTracker.Services</Name>
+      <Name>Jonesware.WeightTracker.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,5 @@
 ﻿using Jonesware.WeightTracker.Website.ViewModels.WeighIns;
-using JonesWare.WeightTracker.Services.Interfaces;
+using Jonesware.WeightTracker.Services.Interfaces;
 using System;
 using System.Web.Mvc;
 

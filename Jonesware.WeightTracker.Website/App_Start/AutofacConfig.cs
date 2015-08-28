@@ -1,8 +1,8 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using Jonesware.WeightTracker.Data.Contexts;
-using JonesWare.WeightTracker.Services;
-using JonesWare.WeightTracker.Services.Interfaces;
+using Jonesware.WeightTracker.Services;
+using Jonesware.WeightTracker.Services.Interfaces;
 using System.Data.Entity;
 using System.Reflection;
 
