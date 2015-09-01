@@ -16,7 +16,7 @@ namespace Jonesware.WeightTracker.Model
     {
         public int Id { get; set; }
         public int UserId { get; set; }
-        public int Weight { get; set; }
+        public decimal Weight { get; set; }
         public System.DateTime DateRecorded { get; set; }
     
         public virtual User User { get; set; }

@@ -9,7 +9,7 @@ namespace Jonesware.WeightTracker.Services.Interfaces
 {
 	public interface IWeighInService
 	{
-		void CreateWeighIn(int userId, int weight, DateTime dateRecorded);
+		void CreateWeighIn(int userId, decimal weight, DateTime dateRecorded);
 
 		void DeleteWeighIn(int weighInId, int userId);
 

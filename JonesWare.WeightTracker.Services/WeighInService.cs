@@ -21,7 +21,7 @@ namespace Jonesware.WeightTracker.Services
 			db = context as WeightTrackerEntities;
 		}
 
-		public void CreateWeighIn(int userId, int weight, DateTime dateRecorded)
+		public void CreateWeighIn(int userId, decimal weight, DateTime dateRecorded)
 		{
 			var weighIn = new WeighIn()
 			{

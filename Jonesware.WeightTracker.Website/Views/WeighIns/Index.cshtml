@@ -54,9 +54,6 @@
 
 @section scripts
 {
-	<script src="//cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.time.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.selection.min.js"></script>
 	<script>
 		$(function () {
 			var d = [
@@ -188,10 +185,10 @@
 
 			$("#placeholder").bind("plothover", function (event, pos, item) {
 				if (item) {
-					var x = item.datapoint[0].toFixed(2),
-						y = item.datapoint[1].toFixed(2);
+					var x = item.datapoint[0].toFixed(1),
+						y = item.datapoint[1].toFixed(1);
 
-					$("#tooltip").html(item.series.label + " of " + x + " = " + y)
+					$("#tooltip").html(item.series.label + " = " + y)
 						.css({ top: item.pageY + 5, left: item.pageX + 5 })
 						.fadeIn(200);
 				} else {

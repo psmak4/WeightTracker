@@ -8,11 +8,17 @@ namespace Jonesware.WeightTracker.Website.ViewModels.WeighIns
 	{
 		[Required]
 		[DisplayName("Weight")]
-		public int Weight { get; set; }
+		public decimal Weight { get; set; }
 
 		[Required]
 		[DisplayName("Date")]
 		[DataType(DataType.Date)]
+		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
 		public DateTime DateRecorded { get; set; }
+
+		public CreateViewModel()
+		{
+			DateRecorded = DateTime.Now;
+		}
 	}
 }

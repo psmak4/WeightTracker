@@ -36,3 +36,26 @@
 		</div>
 	</div>
 }
+
+@section scripts
+{
+	<script>
+		$(function () {
+			$('#Weight').TouchSpin({
+				min: 0,
+				max: 999.9,
+				step: 0.1,
+				decimals: 1,
+				boostat: 5,
+				maxboostedstep: 10,
+				verticalbuttons: true
+			});
+
+			$('#DateRecorded').datepicker({
+				autoclose: true,
+				format: 'yyyy-mm-dd',
+				orientation: "top left"
+			});
+		});
+	</script>
+}
