@@ -46,7 +46,7 @@ namespace Jonesware.WeightTracker.Website.Controllers
 				}
 				catch (Exception ex)
 				{
-					ModelState.AddModelError("", ex);
+					ModelState.AddModelError("", ex.Message);
 				}
 			}
 
@@ -75,7 +75,7 @@ namespace Jonesware.WeightTracker.Website.Controllers
 				}
 				catch (Exception ex)
 				{
-					ModelState.AddModelError("", ex);
+					ModelState.AddModelError("", ex.Message);
 				}
 			}
 
