@@ -189,6 +189,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Views\Profile\BodyFatPercentage.cshtml" />
     <Content Include="Views\Profile\BodyMassIndex.cshtml" />
+    <Content Include="Views\Shared\_PageHeader.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -5,16 +5,11 @@
     Layout = "~/Views/Shared/_2ColumnLeft.cshtml";
 }
 
-<div class="page-header">
-	<h2>Body Fat Percentage</h2>
-</div>
+@Html.Partial("~/Views/Shared/_PageHeader.cshtml", "Body Fat Percentage")
 
 @if (Model.CanCalculate)
 {
-	<dl class="dl-horizontal">
-		<dt><span class="pull-left text-muted">Body Fat Percentage</span></dt>
-		<dd>@Model.BFP.Value.ToString("#.##")</dd>
-	</dl>
+	<p><strong class="text-muted">Your Body Fat Percentage:</strong> @Model.BFP.Value.ToString("#.##")</p>
 }
 else
 {

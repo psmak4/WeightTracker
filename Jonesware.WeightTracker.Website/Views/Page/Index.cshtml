@@ -3,6 +3,6 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+@Html.Partial("~/Views/Shared/_PageHeader.cshtml", "Index")
 
 <p>@User.Identity.Name : @User.Identity.IsAuthenticated</p>

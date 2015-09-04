@@ -5,9 +5,8 @@
 	Layout = "~/Views/Shared/_2ColumnLeft.cshtml";
 }
 
-<div class="page-header">
-	<h2>Weigh Ins <small class="pull-right"><a class="btn btn-default" href="@Url.RouteUrl("NewWeighIn")"><span class="fa fa-fw fa-plus"></span></a></small></h2>
-</div>
+@Html.Partial("~/Views/Shared/_PageHeader.cshtml", "Weigh Ins")
+<a class="btn btn-default" href="@Url.RouteUrl("NewWeighIn")"><span class="fa fa-fw fa-plus"></span></a>
 
 <div class="demo-container">
 	<div id="placeholder" class="demo-placeholder"></div>

@@ -1,10 +1,10 @@
 ﻿@model Jonesware.WeightTracker.Website.ViewModels.WeighIns.CreateViewModel
 
 @{
-	ViewBag.Title = "Create";
+	ViewBag.Title = "New Weigh In";
 }
 
-<h2>Create</h2>
+@Html.Partial("~/Views/Shared/_PageHeader.cshtml", "New Weigh In")
 
 @using (Html.BeginForm())
 {

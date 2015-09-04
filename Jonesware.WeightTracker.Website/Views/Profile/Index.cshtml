@@ -5,20 +5,9 @@
 	Layout = "~/Views/Shared/_2ColumnLeft.cshtml";
 }
 
-<div class="page-header">
-	<h2>Profile</h2>
-</div>
+@Html.Partial("~/Views/Shared/_PageHeader.cshtml", "Profile")
 
-<dl class="dl-horizontal">
-	<dt><span class="pull-left text-muted">Birth Date</span></dt>
-	<dd>@Model.BirthDate</dd>
-
-	<dt><span class="pull-left text-muted">Birth Year</span></dt>
-	<dd>@Model.BirthYear</dd>
-
-	<dt><span class="pull-left text-muted">Height</span></dt>
-	<dd>@Model.Height</dd>
-
-	<dt><span class="pull-left text-muted">Gender</span></dt>
-	<dd>@Model.Gender</dd>
-</dl>
+<p><strong class="text-muted">Birth Date:</strong> @Model.BirthDate</p>
+<p><strong class="text-muted">Birth Year:</strong> @Model.BirthYear</p>
+<p><strong class="text-muted">Height:</strong> @Model.Height</p>
+<p><strong class="text-muted">Gender:</strong> @Model.Gender</p>
