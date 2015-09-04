@@ -1,0 +1,24 @@
+﻿@model Jonesware.WeightTracker.Website.ViewModels.Profile.IndexViewModel
+
+@{
+	ViewBag.Title = "Profile";
+	Layout = "~/Views/Shared/_2ColumnLeft.cshtml";
+}
+
+<div class="page-header">
+	<h2>Profile</h2>
+</div>
+
+<dl class="dl-horizontal">
+	<dt><span class="pull-left text-muted">Birth Date</span></dt>
+	<dd>@Model.BirthDate</dd>
+
+	<dt><span class="pull-left text-muted">Birth Year</span></dt>
+	<dd>@Model.BirthYear</dd>
+
+	<dt><span class="pull-left text-muted">Height</span></dt>
+	<dd>@Model.Height</dd>
+
+	<dt><span class="pull-left text-muted">Gender</span></dt>
+	<dd>@Model.Gender</dd>
+</dl>

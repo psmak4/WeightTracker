@@ -31,7 +31,27 @@ namespace Jonesware.WeightTracker.Website
 			routes.MapRoute(
 				name: "WeighIns",
 				url: "weighins",
-				defaults: new { controller = "WeighIns", action = "Index" }
+				defaults: new { controller = "Profile", action = "WeighIns" }
+			);
+			routes.MapRoute(
+				name: "NewWeighIn",
+				url: "weighins/new",
+				defaults: new { controller = "WeighIns", action = "Create" }
+			);
+			routes.MapRoute(
+				name: "Profile",
+				url: "profile",
+				defaults: new { controller = "Profile", action = "Index" }
+			);
+			routes.MapRoute(
+				name: "BodyMassIndex",
+				url: "bodymassindex",
+				defaults: new { controller = "Profile", action = "BodyMassIndex" }
+			);
+			routes.MapRoute(
+				name: "BodyFatPercentage",
+				url: "bodyfatpercentage",
+				defaults: new { controller = "Profile", action = "BodyFatPercentage" }
 			);
 			routes.MapRoute(
 				name: "Default",

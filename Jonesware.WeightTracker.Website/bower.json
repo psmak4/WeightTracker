@@ -6,7 +6,9 @@
     "bootstrap": "~3.3.5",
     "bootstrap-datepicker": "~1.4.0",
     "bootstrap-touchspin": "~3.0.1",
+    "bootswatch": "~3.3.5+3",
     "Flot": "jquery-flot#~0.8.3",
+    "font-awesome": "~4.4.0",
     "jquery": "~2.1.4",
     "modernizr": "~2.8.3"
   },

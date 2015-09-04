@@ -5,6 +5,7 @@ using System.Web.Mvc;
 
 namespace Jonesware.WeightTracker.Website.Controllers
 {
+	[Authorize]
 	public class WeighInsController : BaseController
 	{
 		private IWeighInService weighInService;
@@ -14,13 +15,6 @@ namespace Jonesware.WeightTracker.Website.Controllers
 			if (weighInService == null)
 				throw new ArgumentNullException("weighInService");
 			this.weighInService = weighInService;
-		}
-
-		public ActionResult Index()
-		{
-			var model = weighInService.GetUserWeighIns(User.UserId);
-
-			return View(model);
 		}
 
 		public ActionResult Create()

@@ -7,5 +7,9 @@ namespace Jonesware.WeightTracker.Services.Interfaces
 		User CreateUser(string username, string password, string email);
 
 		User GetActiveUser(string username, string password);
+
+		User GetUser(int userId);
+
+		User GetUser(string username);
 	}
 }

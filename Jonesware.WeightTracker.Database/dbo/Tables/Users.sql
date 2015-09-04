@@ -4,5 +4,8 @@
     [Username] NVARCHAR(50) NOT NULL, 
     [Password] NVARCHAR(60) NOT NULL, 
     [Email] NVARCHAR(100) NOT NULL, 
-    [IsActive] BIT NOT NULL
+    [IsActive] BIT NOT NULL, 
+    [Height] INT NULL, 
+    [DateOfBirth] DATE NULL, 
+    [Gender] CHAR NULL
 )

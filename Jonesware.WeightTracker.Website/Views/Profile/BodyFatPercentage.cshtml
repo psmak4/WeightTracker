@@ -1,0 +1,22 @@
+﻿@model Jonesware.WeightTracker.Website.ViewModels.Profile.BodyFatPercentageViewModel
+
+@{
+    ViewBag.Title = "Body Fat Percentage";
+    Layout = "~/Views/Shared/_2ColumnLeft.cshtml";
+}
+
+<div class="page-header">
+	<h2>Body Fat Percentage</h2>
+</div>
+
+@if (Model.CanCalculate)
+{
+	<dl class="dl-horizontal">
+		<dt><span class="pull-left text-muted">Body Fat Percentage</span></dt>
+		<dd>@Model.BFP.Value.ToString("#.##")</dd>
+	</dl>
+}
+else
+{
+	<p>We are unable to calculate your body fat percentage at this time.</p>
+}

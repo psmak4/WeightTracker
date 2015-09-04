@@ -14,6 +14,9 @@
           <Property Name="Password" Type="nvarchar" MaxLength="60" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Height" Type="int" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="Gender" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="WeighIns">
           <Key>
@@ -58,6 +61,9 @@
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="WeighIns" Relationship="Jonesware.WeightTracker.Model.FK_WeighIns_Users" FromRole="User" ToRole="WeighIn" />
+          <Property Name="Height" Type="Int32" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityContainer Name="WeightTrackerEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Users" EntityType="Self.User" />
@@ -98,6 +104,9 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="Jonesware.WeightTracker.Model.User">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Password" ColumnName="Password" />

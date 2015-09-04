@@ -67,6 +67,10 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="GravatarHelper, Version=3.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GravatarHelper.3.3.1\lib\Net40\GravatarHelper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
       <Private>True</Private>
@@ -156,7 +160,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\lib.min.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="gulpfile.js" />
+    <Content Include="images\bmi-for-men-and-women.png" />
     <Content Include="js\lib.min.js" />
     <Content Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -167,8 +174,21 @@
     <Content Include="bower.json" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\WeighIns\Index.cshtml" />
+    <Content Include="Views\Profile\WeighIns.cshtml" />
     <Content Include="Views\WeighIns\Create.cshtml" />
+    <Content Include="Views\Shared\_2ColumnLeft.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Views\Profile\BodyFatPercentage.cshtml" />
+    <Content Include="Views\Profile\BodyMassIndex.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -177,7 +197,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Site.css" />
+    <Content Include="css\app.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -188,16 +208,24 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\PageController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\WeighInsController.cs" />
+    <Compile Include="Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BodyFatPercentage.cs" />
+    <Compile Include="Models\BodyMassIndex.cs" />
     <Compile Include="Models\CustomPrincipal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Account\LoginViewModel.cs" />
     <Compile Include="ViewModels\Account\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\Profile\BodyFatPercentageViewModel.cs" />
+    <Compile Include="ViewModels\Profile\BodyMassIndexViewModel.cs" />
+    <Compile Include="ViewModels\Profile\IndexViewModel.cs" />
     <Compile Include="ViewModels\WeighIns\CreateViewModel.cs" />
+    <Compile Include="Views\BaseViewPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Jonesware.WeightTracker.Data\Jonesware.WeightTracker.Data.csproj">

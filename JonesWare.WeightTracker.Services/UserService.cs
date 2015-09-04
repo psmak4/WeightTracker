@@ -21,7 +21,11 @@ namespace Jonesware.WeightTracker.Services
 
 		public User CreateUser(string username, string password, string email)
 		{
-			var user = new User()
+			var user = GetUser(username);
+			if (user != null)
+				throw new Exception("Username is already taken");
+
+			user = new User()
 			{
 				Username = username,
 				Password = Security.HashPassword(password),
@@ -37,7 +41,7 @@ namespace Jonesware.WeightTracker.Services
 
 		public User GetActiveUser(string username, string password)
 		{
-			var user = db.Users.Where(u => u.Username == username && u.IsActive).FirstOrDefault();
+			var user = db.Users.FirstOrDefault(u => u.Username == username && u.IsActive);
 			if (user == null)
 				throw new Exception("Invalid username/password given");
 
@@ -46,5 +50,15 @@ namespace Jonesware.WeightTracker.Services
 
 			return user;
 		}
-    }
+
+		public User GetUser(int userId)
+		{
+			return db.Users.FirstOrDefault(u => u.Id == userId);
+		}
+
+		public User GetUser(string username)
+		{
+			return db.Users.FirstOrDefault(u => u.Username.ToLower() == username.ToLower());
+		}
+	}
 }

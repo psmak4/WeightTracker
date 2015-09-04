@@ -48,3 +48,6 @@ bower_components/
 node_modules/
 .vs/
 packages/
+*.ldf
+*.mdf
+Database/WeightTracker.ldf
