@@ -1,0 +1,79 @@
+﻿<section class="form-container" style="background-image: url(/images/photo-1424169292451-7c28a6053189.jpg);">
+	<div class="container wide">
+		<div class="form">
+			<div class="form-content">
+				<form data-bind="submit: register">
+					<ul class="list-unstyled text-danger" data-bind="visible: errors().length > 0, foreach: errors">
+						<li data-bind="text: value"></li>
+					</ul>
+
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="h3">Account Info</div>
+
+							<fieldset class="well">
+								<div class="form-group">
+									<label for="Username" class="sr-only">Username</label>
+									<input type="text" class="form-control" placeholder="Username" id="Username" data-bind="value: username" />
+								</div>
+
+								<div class="form-group">
+									<label for="Email" class="sr-only">Email Address</label>
+									<input type="email" class="form-control" placeholder="Email Address" id="Email" data-bind="value: email" />
+								</div>
+
+								<div class="form-group">
+									<label for="Password" class="sr-only">Password</label>
+									<input type="password" class="form-control" placeholder="Password" id="Password" data-bind="value: password" />
+								</div>
+
+								<div class="form-group">
+									<label for="ConfirmPassword" class="sr-only">Confirm</label>
+									<input type="password" class="form-control" placeholder="Confirm Password" id="ConfirmPassword" data-bind="value: confirmPassword" />
+								</div>
+							</fieldset>
+						</div>
+
+						<div class="col-sm-6">
+							<div class="h3">Personal Details</div>
+							<fieldset class="well">
+								<div class="form-group">
+									<label for="FirstName" class="sr-only">First Name</label>
+									<input type="text" class="form-control" placeholder="First Name" id="FirstName" data-bind="value: firstName" />
+								</div>
+
+								<div class="form-group">
+									<label for="LastName" class="sr-only">Last Name</label>
+									<input type="text" class="form-control" placeholder="Last Name" id="LastName" data-bind="value: lastName" />
+								</div>
+
+								<div class="form-group">
+									<label for="DateOfBirth" class="sr-only">Birthdate</label>
+									<input type="text" class="form-control" placeholder="Birthdate" id="DateOfBirth" data-bind="value: dateOfBirth" />
+								</div>
+
+								<div class="form-group">
+									<label for="Height" class="sr-only">Height</label>
+									<input type="number" class="form-control" placeholder="Height (inches)" id="Height" min="0" max="100" step="1" data-bind="value: height" />
+								</div>
+
+								<div class="form-group">
+									<label for="Gender" class="sr-only">Gender</label>
+									<select class="form-control" data-bind="options: genderOptions, optionsText: 'text', value: gender, optionsCaption: 'Gender'"></select>
+								</div>
+							</fieldset>
+						</div>
+					</div>
+
+					<button type="submit" class="btn btn-primary btn-lg btn-block" id="Submit">Submit</button>
+				</form>
+			</div>
+
+			<div class="form-footer">
+				<a href="/login">Already have an account?</a>
+				<br />
+				<a href="/forgotpassword">Forgot your password?</a>
+			</div>
+		</div>
+	</div>
+</section>

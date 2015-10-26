@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{718e34ea-dfae-4825-adbf-612b1fff2ac1}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureDatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -63,8 +63,14 @@
   <ItemGroup>
     <Build Include="dbo\Tables\Users.sql" />
     <Build Include="dbo\Tables\WeighIns.sql" />
+    <Build Include="dbo\Tables\__MigrationHistory.sql" />
+    <Build Include="dbo\Tables\Roles.sql" />
+    <Build Include="dbo\Tables\UserClaims.sql" />
+    <Build Include="dbo\Tables\UserLogins.sql" />
+    <Build Include="dbo\Tables\UserRoles.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dev.publish.xml" />
+    <None Include="prod.publish.xml" />
   </ItemGroup>
 </Project>

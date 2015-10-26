@@ -5,8 +5,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="7047169ca6b7428f81fb2875f60b5415" Name="Diagram1">
-        <EntityTypeShape EntityType="Jonesware.WeightTracker.Model.User" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Jonesware.WeightTracker.Model.WeighIn" Width="1.5" PointX="3" PointY="0.875" />
+        <EntityTypeShape EntityType="Jonesware.WeightTracker.Model.User" Width="1.5" PointX="0.75" PointY="4.125" />
+        <EntityTypeShape EntityType="Jonesware.WeightTracker.Model.WeighIn" Width="1.5" PointX="3" PointY="8.375" />
         <AssociationConnector Association="Jonesware.WeightTracker.Model.FK_WeighIns_Users" />
       </Diagram>
     </edmx:Diagrams>

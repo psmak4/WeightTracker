@@ -5,7 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>@ViewBag.Title - @Constants.SiteName</title>
 	<link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-	<link href="//fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 	<link href="~/css/lib.min.css" rel="stylesheet" />
 	<link href="~/css/app.css" rel="stylesheet" />
 	<script src="~/bower_components/modernizr/modernizr.js"></script>
@@ -42,13 +41,12 @@
 	<main>
 		<div class="container body-content">
 			@RenderBody()
-			<hr />
 		</div>
 	</main>
 
 	<footer>
 		<div class="container">
-			<p>&copy; @DateTime.Now.Year - Weight Tracker</p>
+			<p class="text-muted">&copy; @DateTime.Now.Year - Weight Tracker</p>
 		</div>
 	</footer>
 

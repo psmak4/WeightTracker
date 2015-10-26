@@ -6,11 +6,18 @@
     "bootstrap": "~3.3.5",
     "bootstrap-datepicker": "~1.4.0",
     "bootstrap-touchspin": "~3.0.1",
-    "bootswatch": "~3.3.5+3",
+    "Durandal": "durandal#~2.1.0",
     "Flot": "jquery-flot#~0.8.3",
     "font-awesome": "~4.4.0",
     "jquery": "~2.1.4",
-    "modernizr": "~2.8.3"
+    "knockout": "~3.3.0",
+    "knockout-projections": "~1.1.0",
+    "modernizr": "~2.8.3",
+    "requirejs": "~2.1.20",
+    "text": "requirejs-text#~2.0.14",
+    "knockout-validation": "~2.0.3",
+    "toastr": "~2.1.2",
+    "semantic": "semantic-ui#~2.1.4"
   },
   "ignore": [
     "**/.*",
@@ -21,5 +28,10 @@
   ],
   "license": "MIT",
   "name": "WeightTracker",
-  "version": "0.0.0"
+  "version": "0.0.0",
+  "resolutions": {
+    "knockout": "~3.3.0",
+    "jquery": "~2.1.4",
+    "requirejs": "~2.1.20"
+  }
 }

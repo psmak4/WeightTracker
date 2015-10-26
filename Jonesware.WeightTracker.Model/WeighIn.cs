@@ -15,7 +15,7 @@ namespace Jonesware.WeightTracker.Model
     public partial class WeighIn
     {
         public int Id { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public decimal Weight { get; set; }
         public System.DateTime DateRecorded { get; set; }
     

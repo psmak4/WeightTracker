@@ -14,15 +14,14 @@
 @if (Model.CanCalculate)
 {
 	<p>We were able to calculate your BMI based on the information you have given us in your Profile and from your latest Weigh In.</p>
-	<p><strong class="text-muted">Your Body Mass Index (BMI):</strong> @Model.BMI.Value.ToString("#.##")</p>
-	<p>Refer to the image below to see how your BMI ranks.</p>
+	<p class="h2 text-muted text-center">Your Body Mass Index (BMI): @Model.BMI.Value.ToString("#.##")</p>
 }
 else
 {
 	<p>We are unable to calculate your body mass index at this time. Please fill out your Profile and have at least 1 Weigh In.</p>
 }
 
-<p><img class="img-responsive center-block" src="~/images/bmi-for-men-and-women.png" alt="Image taken from Medical News Today." title="Body Mass Index Chart" /></p>
+<p class="img-container"><a href="~/images/bmi-for-men-and-women.png"><img class="img-responsive img-thumbnail center-block" src="~/images/bmi-for-men-and-women.png" alt="Image taken from Medical News Today." title="Body Mass Index Chart" /></a></p>
 
 <p>
 	Although BMI can be used for most men and women, it does have some limits:
@@ -36,8 +35,8 @@ else
 
 <p class="small"><em>Additional information on BMI may be found at the following sources:</em></p>
 <ul class="small">
-	<li><a href="http://www.medicalnewstoday.com/info/obesity/what-is-bmi.php" target="_blank">http://www.medicalnewstoday.com/info/obesity/what-is-bmi.php</a></li>
-	<li><a href="http://halls.md/body-mass-index/av.htm" target="_blank">http://halls.md/body-mass-index/av.htm</a></li>
-	<li><a href="http://www.nhlbi.nih.gov/health/educational/lose_wt/risk.htm" target="_blank">http://www.nhlbi.nih.gov/health/educational/lose_wt/risk.htm</a></li>
-	<li><a href="http://www.cancer.org/cancer/cancercauses/dietandphysicalactivity/bodyweightandcancerrisk/body-weight-and-cancer-risk-adult-bmi" target="_blank">http://www.cancer.org/cancer/cancercauses/dietandphysicalactivity/bodyweightandcancerrisk/body-weight-and-cancer-risk-adult-bmi</a></li>
+	<li><a href="http://www.medicalnewstoday.com/info/obesity/what-is-bmi.php" target="_blank">Medical News Today</a></li>
+	<li><a href="http://halls.md/body-mass-index/av.htm" target="_blank">Halls MD</a></li>
+	<li><a href="http://www.nhlbi.nih.gov/health/educational/lose_wt/risk.htm" target="_blank">National Heart, Lung, and Blood Institute</a></li>
+	<li><a href="http://www.cancer.org/cancer/cancercauses/dietandphysicalactivity/bodyweightandcancerrisk/body-weight-and-cancer-risk-adult-bmi" target="_blank">American Cancer Society</a></li>
 </ul>

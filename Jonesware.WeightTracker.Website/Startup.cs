@@ -1,12 +1,17 @@
-﻿using Autofac.Integration.Mvc;
-using Microsoft.AspNet.Identity;
+﻿using Jonesware.WeightTracker.Website.Identity;
+using Jonesware.WeightTracker.Website.Providers;
 using Microsoft.Owin;
-using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.DataHandler.Encoder;
+using Microsoft.Owin.Security.Jwt;
+using Microsoft.Owin.Security.OAuth;
+using Newtonsoft.Json.Serialization;
 using Owin;
-using System.Web.Mvc;
-using System.Web.Routing;
-
-[assembly: OwinStartup(typeof(Jonesware.WeightTracker.Website.Startup))]
+using System;
+using System.Configuration;
+using System.Linq;
+using System.Net.Http.Formatting;
+using System.Web.Http;
 
 namespace Jonesware.WeightTracker.Website
 {
@@ -14,17 +19,69 @@ namespace Jonesware.WeightTracker.Website
 	{
 		public void Configuration(IAppBuilder app)
 		{
-			var container = AutofacConfig.Register();
-			app.UseAutofacMiddleware(container);
-			app.UseAutofacMvc();
-			DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
-			RouteConfig.RegisterRoutes(RouteTable.Routes);
+			var config = new HttpConfiguration();
 
-			app.UseCookieAuthentication(new CookieAuthenticationOptions()
+			SwaggerConfig.Register(config);
+
+			ConfigureOAuthTokenGeneration(app);
+
+			ConfigureOAuthTokenConsumption(app);
+
+			ConfigureWebApi(config);
+
+			app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
+
+			app.UseWebApi(config);
+		}
+
+		private void ConfigureOAuthTokenGeneration(IAppBuilder app)
+		{
+			// Configure the db context and user manager to use a single instance per request
+			app.CreatePerOwinContext(ApplicationDbContext.Create);
+			app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
+			app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
+
+			OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
 			{
-				AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-				LoginPath = new PathString("/login")
-			});
+				//For Dev enviroment only (on production should be AllowInsecureHttp = false)
+				AllowInsecureHttp = true,
+				TokenEndpointPath = new PathString("/oauth/token"),
+				AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
+				Provider = new CustomOAuthProvider(),
+				AccessTokenFormat = new CustomJwtFormat("http://localhost:50347")
+			};
+
+			// OAuth 2.0 Bearer Access Token Generation
+			app.UseOAuthAuthorizationServer(OAuthServerOptions);
+
+			app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
+		}
+
+		private void ConfigureWebApi(HttpConfiguration config)
+		{
+			config.MapHttpAttributeRoutes();
+
+			var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
+			jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+		}
+
+		private void ConfigureOAuthTokenConsumption(IAppBuilder app)
+		{
+			var issuer = "http://localhost:50347";
+			string audienceId = ConfigurationManager.AppSettings["as:AudienceId"];
+			byte[] audienceSecret = TextEncodings.Base64Url.Decode(ConfigurationManager.AppSettings["as:AudienceSecret"]);
+
+			// Api controllers with an [Authorize] attribute will be validated with JWT
+			app.UseJwtBearerAuthentication(
+				new JwtBearerAuthenticationOptions
+				{
+					AuthenticationMode = AuthenticationMode.Active,
+					AllowedAudiences = new[] { audienceId },
+					IssuerSecurityTokenProviders = new IIssuerSecurityTokenProvider[]
+					{
+						new SymmetricKeyIssuerSecurityTokenProvider(issuer, audienceSecret)
+					}
+				});
 		}
 	}
 }

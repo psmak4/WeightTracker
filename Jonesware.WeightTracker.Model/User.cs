@@ -20,13 +20,24 @@ namespace Jonesware.WeightTracker.Model
             this.WeighIns = new HashSet<WeighIn>();
         }
     
-        public int Id { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
+        public string Id { get; set; }
         public string Email { get; set; }
-        public bool IsActive { get; set; }
-        public Nullable<int> Height { get; set; }
+        public bool EmailConfirmed { get; set; }
+        public string PasswordHash { get; set; }
+        public string SecurityStamp { get; set; }
+        public string PhoneNumber { get; set; }
+        public bool PhoneNumberConfirmed { get; set; }
+        public bool TwoFactorEnabled { get; set; }
+        public Nullable<System.DateTime> LockoutEndDateUtc { get; set; }
+        public bool LockoutEnabled { get; set; }
+        public int AccessFailedCount { get; set; }
+        public string UserName { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public Nullable<System.DateTime> DateCreated { get; set; }
+        public string Discriminator { get; set; }
         public Nullable<System.DateTime> DateOfBirth { get; set; }
+        public Nullable<int> Height { get; set; }
         public string Gender { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

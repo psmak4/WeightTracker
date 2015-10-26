@@ -5,8 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Jonesware.WeightTracker.Services
 {
@@ -21,7 +19,7 @@ namespace Jonesware.WeightTracker.Services
 			db = context as WeightTrackerEntities;
 		}
 
-		public void CreateWeighIn(int userId, decimal weight, DateTime dateRecorded)
+		public WeighIn CreateWeighIn(string userId, decimal weight, DateTime dateRecorded)
 		{
 			var weighIn = new WeighIn()
 			{
@@ -32,18 +30,25 @@ namespace Jonesware.WeightTracker.Services
 
 			db.WeighIns.Add(weighIn);
 			db.SaveChanges();
+
+			return weighIn;
 		}
 
-		public void DeleteWeighIn(int weighInId, int userId)
+		public void DeleteWeighIn(int weighInId, string userId)
 		{
 			var weighIn = db.WeighIns.Where(w => w.Id == weighInId && w.UserId == userId).FirstOrDefault();
 			if (weighIn != null)
 				db.WeighIns.Remove(weighIn);
 		}
 
-		public IEnumerable<WeighIn> GetUserWeighIns(int userId)
+		public IEnumerable<WeighIn> GetUserWeighIns(string userId)
 		{
 			return db.WeighIns.Where(w => w.UserId == userId).AsEnumerable();
+		}
+
+		public WeighIn GetWeighIn(int weighInId)
+		{
+			return db.WeighIns.FirstOrDefault(w => w.Id == weighInId);
 		}
     }
 }

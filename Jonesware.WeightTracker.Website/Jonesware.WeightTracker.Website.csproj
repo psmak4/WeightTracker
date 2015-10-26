@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -43,22 +43,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Autofac.Integration.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\packages\Autofac.Mvc5.3.3.4\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Autofac.Integration.Mvc.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\packages\Autofac.Mvc5.Owin.3.1.0\lib\net45\Autofac.Integration.Mvc.Owin.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Autofac.Integration.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\packages\Autofac.Owin.3.1.0\lib\net45\Autofac.Integration.Owin.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -67,12 +51,12 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="GravatarHelper, Version=3.3.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\GravatarHelper.3.3.1\lib\Net40\GravatarHelper.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -80,12 +64,16 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Cors, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Cors.3.0.1\lib\net45\Microsoft.Owin.Cors.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -100,8 +88,12 @@
       <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    <Reference Include="Microsoft.Owin.Security.Jwt, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Jwt.3.0.1\lib\net45\Microsoft.Owin.Security.Jwt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -116,7 +108,36 @@
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net452\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SendGrid.SmtpApi, Version=1.3.1.0, Culture=neutral, PublicKeyToken=2ae73662c35d80e4, processorArchitecture=MSIL">
+      <HintPath>..\packages\SendGrid.SmtpApi.1.3.1\lib\net40\SendGrid.SmtpApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SendGridMail, Version=6.1.0.0, Culture=neutral, PublicKeyToken=2ae73662c35d80e4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sendgrid.6.1.0\lib\SendGridMail.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Swashbuckle.Core.5.2.1\lib\net40\Swashbuckle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=4.0.20622.1351, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.4.0.2.206221351\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -126,28 +147,16 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml.Linq" />
@@ -157,14 +166,107 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Thinktecture.IdentityModel.Core, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Thinktecture.IdentityModel.Core.1.4.0\lib\net45\Thinktecture.IdentityModel.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Twilio.Api, Version=3.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Twilio.4.0.51\lib\3.5\Twilio.Api.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\app.min.css" />
     <Content Include="css\lib.min.css" />
+    <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="gulpfile.js" />
+    <Content Include="images\5696ad6-grayscale.jpg" />
+    <Content Include="images\a5696ad6-min.jpg" />
+    <Content Include="images\bkg-1.jpg" />
+    <Content Include="images\bkg-10.jpg" />
+    <Content Include="images\bkg-2.jpg" />
+    <Content Include="images\bkg-3.jpg" />
+    <Content Include="images\bkg-4.jpg" />
+    <Content Include="images\bkg-5.jpg" />
+    <Content Include="images\bkg-6.jpg" />
+    <Content Include="images\bkg-7.jpg" />
+    <Content Include="images\bkg-8.jpg" />
+    <Content Include="images\bkg-9.jpg" />
     <Content Include="images\bmi-for-men-and-women.png" />
-    <Content Include="js\lib.min.js" />
+    <Content Include="images\footer_lodyas.png" />
+    <Content Include="images\johnny-lam-connect.jpg" />
+    <Content Include="images\photo-1422226256160-9b266e308ea6.jpg" />
+    <Content Include="images\photo-1424169292451-7c28a6053189.jpg" />
+    <Content Include="images\photo-1440688807730-73e4e2169fb8.jpg" />
+    <Content Include="images\photo-1440964829947-ca3277bd37f8.jpg" />
+    <Content Include="index.html" />
+    <Content Include="app\global\session.js" />
+    <Content Include="app\main.js" />
+    <Content Include="app\services\userService.js" />
+    <Content Include="app\services\utilities.js" />
+    <Content Include="app\views\forgotpassword.html" />
+    <Content Include="app\viewmodels\forgotpassword.js" />
+    <Content Include="app\views\home.html" />
+    <Content Include="app\viewmodels\home.js" />
+    <Content Include="app\views\stats.html" />
+    <Content Include="app\viewmodels\stats.js" />
+    <Content Include="app\views\profile.html" />
+    <Content Include="app\viewmodels\profile.js" />
+    <Content Include="app\views\weighins.html" />
+    <Content Include="app\viewmodels\weighins.js" />
+    <Content Include="app\views\index.html" />
+    <Content Include="app\viewmodels\index.js" />
+    <Content Include="app\views\layout.html" />
+    <Content Include="app\viewmodels\layout.js" />
+    <Content Include="app\views\login.html" />
+    <Content Include="app\viewmodels\login.js" />
+    <Content Include="app\views\register.html" />
+    <Content Include="app\viewmodels\register.js" />
+    <Content Include="app\views\resetpassword.html" />
+    <Content Include="app\viewmodels\resetpassword.js" />
+    <Content Include="app\services\logger.js" />
+    <Content Include="app\services\security.js" />
+    <Content Include="app\settings.js" />
+    <Content Include="js\lib\bootstrap\bootstrap.js" />
+    <Content Include="js\lib\datepicker\datepicker.js" />
+    <Content Include="js\lib\durandal\activator.js" />
+    <Content Include="js\lib\durandal\app.js" />
+    <Content Include="js\lib\durandal\binder.js" />
+    <Content Include="js\lib\durandal\composition.js" />
+    <Content Include="js\lib\durandal\events.js" />
+    <Content Include="js\lib\durandal\plugins\dialog.js" />
+    <Content Include="js\lib\durandal\plugins\history.js" />
+    <Content Include="js\lib\durandal\plugins\http.js" />
+    <Content Include="js\lib\durandal\plugins\observable.js" />
+    <Content Include="js\lib\durandal\plugins\router.js" />
+    <Content Include="js\lib\durandal\plugins\serializer.js" />
+    <Content Include="js\lib\durandal\plugins\widget.js" />
+    <Content Include="js\lib\durandal\system.js" />
+    <Content Include="js\lib\durandal\transitions\entrance.js" />
+    <Content Include="js\lib\durandal\viewEngine.js" />
+    <Content Include="js\lib\durandal\viewLocator.js" />
+    <Content Include="js\lib\flot\flot.js" />
+    <Content Include="js\lib\flot\jquery.flot.js" />
+    <Content Include="js\lib\flot\jquery.flot.resize.js" />
+    <Content Include="js\lib\flot\jquery.flot.selection.js" />
+    <Content Include="js\lib\flot\jquery.flot.time.js" />
+    <Content Include="js\lib\jquery.utilities\jquery.utilities.js" />
+    <Content Include="js\lib\jquery\jquery.js" />
+    <Content Include="js\lib\knockout\knockout.js" />
+    <Content Include="js\lib\knockout\knockout.projections.js" />
+    <Content Include="js\lib\knockout\knockout.validation.js" />
+    <Content Include="js\lib\modernizr\modernizr.js" />
+    <Content Include="js\lib\require\require.js" />
+    <Content Include="js\lib\semantic\semantic.js" />
+    <Content Include="js\lib\text\text.js" />
+    <Content Include="js\lib\toastr\toastr.js" />
+    <Content Include="js\lib\touchspin\touchspin.js" />
     <Content Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -172,8 +274,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="package.json" />
     <Content Include="bower.json" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Profile\WeighIns.cshtml" />
     <Content Include="Views\WeighIns\Create.cshtml" />
     <Content Include="Views\Shared\_2ColumnLeft.cshtml" />
@@ -190,6 +290,9 @@
     <Content Include="Views\Profile\BodyFatPercentage.cshtml" />
     <Content Include="Views\Profile\BodyMassIndex.cshtml" />
     <Content Include="Views\Shared\_PageHeader.cshtml" />
+    <Content Include="Views\Shared\_Minimal.cshtml" />
+    <Content Include="Less\app.less" />
+    <Content Include="Less\_carousel.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -198,35 +301,50 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\app.css" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\AutofacConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Constants.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\PageController.cs" />
-    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="ApiModels\Accounts\UserApiModel.cs" />
+    <Compile Include="ApiModels\Roles\RoleApiModel.cs" />
+    <Compile Include="ApiModels\WeighIns\BodyFatApiModel.cs" />
+    <Compile Include="ApiModels\WeighIns\BodyMassIndexApiModel.cs" />
+    <Compile Include="ApiModels\WeighIns\WeighInApiModel.cs" />
+    <Compile Include="App_Start\SwaggerConfig.cs" />
+    <Compile Include="BindingModels\Accounts\ChangePasswordBindingModel.cs" />
+    <Compile Include="BindingModels\Accounts\CreateUserBindingModel.cs" />
+    <Compile Include="BindingModels\Accounts\ForgotPasswordBindingModel.cs" />
+    <Compile Include="BindingModels\Accounts\ResetPasswordBindingModel.cs" />
+    <Compile Include="BindingModels\Accounts\UpdateUserBindingModel.cs" />
+    <Compile Include="BindingModels\Roles\CreateRoleBindingModel.cs" />
+    <Compile Include="BindingModels\Roles\UsersInRoleBindingModel.cs" />
+    <Compile Include="BindingModels\WeighIns\CreateBindingModel.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\WeighInsController.cs" />
-    <Compile Include="Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Identity\ApplicationDbContext.cs" />
+    <Compile Include="Identity\ApplicationRoleManager.cs" />
+    <Compile Include="Identity\ApplicationUser.cs" />
+    <Compile Include="Identity\ApplicationUserManager.cs" />
+    <Compile Include="Identity\MailtrapEmailService.cs" />
+    <Compile Include="Identity\SendGridEmailService.cs" />
+    <Compile Include="Identity\SmsService.cs" />
     <Compile Include="Models\BodyFatPercentage.cs" />
     <Compile Include="Models\BodyMassIndex.cs" />
-    <Compile Include="Models\CustomPrincipal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\CustomJwtFormat.cs" />
+    <Compile Include="Providers\CustomOAuthProvider.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\Account\LoginViewModel.cs" />
-    <Compile Include="ViewModels\Account\RegisterViewModel.cs" />
     <Compile Include="ViewModels\Profile\BodyFatPercentageViewModel.cs" />
     <Compile Include="ViewModels\Profile\BodyMassIndexViewModel.cs" />
     <Compile Include="ViewModels\Profile\IndexViewModel.cs" />
     <Compile Include="ViewModels\WeighIns\CreateViewModel.cs" />
-    <Compile Include="Views\BaseViewPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Jonesware.WeightTracker.Data\Jonesware.WeightTracker.Data.csproj">
@@ -273,7 +391,7 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

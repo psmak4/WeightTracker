@@ -1,30 +1,245 @@
-﻿/*
-This file in the main entry point for defining Gulp tasks and using Gulp plugins.
-Click here to learn more. http://go.microsoft.com/fwlink/?LinkId=518007
-*/
-
+/// <binding ProjectOpened='watch' />
 var gulp = require('gulp');
 var concat = require('gulp-concat');
+var jshint = require('gulp-jshint');
+var less = require('gulp-less');
 var minifyCss = require('gulp-minify-css');
+var rename = require("gulp-rename");
+var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 
-gulp.task('javascript', function () {
-	return gulp.src(['bower_components/jquery/dist/jquery.js', 'bower_components/bootstrap/dist/js/bootstrap.js', 'bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js', 'bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js', 'bower_components/Flot/jquery.flot.js', 'bower_components/Flot/jquery.flot.selection.js', 'bower_components/Flot/jquery.flot.time.js', 'bower_components/Flot/jquery.flot.resize.js'])
-		.pipe(concat('lib.min.js'))
+gulp.task('bootstrap', function () {
+	return gulp.src(['bower_components/bootstrap/dist/js/bootstrap.js'])
+		.pipe(jshint())
+		.pipe(rename('bootstrap.js'))
 		.pipe(uglify())
-		.pipe(gulp.dest('js'));
+		.pipe(gulp.dest('js/lib/bootstrap'));
 });
 
-gulp.task('css', function () {
-	return gulp.src(['bower_components/bootstrap/dist/css/bootstrap.css', 'bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css', 'bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css', 'bower_components/font-awesome/css/font-awesome.css'])
-		.pipe(concat('lib.min.css'))
+gulp.task('datepicker', function () {
+	return gulp.src(['bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js'])
+		.pipe(jshint())
+		.pipe(rename('datepicker.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/datepicker'));
+});
+
+gulp.task('durandal', function () {
+	gulp.src(['bower_components/Durandal/js/plugins/dialog.js'])
+		.pipe(jshint())
+		.pipe(rename('dialog.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/durandal/plugins'));
+	gulp.src(['bower_components/Durandal/js/plugins/history.js'])
+		.pipe(jshint())
+		.pipe(rename('history.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/durandal/plugins'));
+	gulp.src(['bower_components/Durandal/js/plugins/http.js'])
+		.pipe(jshint())
+		.pipe(rename('http.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/durandal/plugins'));
+	gulp.src(['bower_components/Durandal/js/plugins/observable.js'])
+		.pipe(jshint())
+		.pipe(rename('observable.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/durandal/plugins'));
+	gulp.src(['bower_components/Durandal/js/plugins/router.js'])
+		.pipe(jshint())
+		.pipe(rename('router.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/durandal/plugins'));
+	gulp.src(['bower_components/Durandal/js/plugins/serializer.js'])
+		.pipe(jshint())
+		.pipe(rename('serializer.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/durandal/plugins'));
+	gulp.src(['bower_components/Durandal/js/plugins/widget.js'])
+		.pipe(jshint())
+		.pipe(rename('widget.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/durandal/plugins'));
+	gulp.src(['bower_components/Durandal/js/transitions/entrance.js'])
+		.pipe(jshint())
+		.pipe(rename('entrance.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/durandal/transitions'));
+	gulp.src(['bower_components/Durandal/js/activator.js'])
+		.pipe(jshint())
+		.pipe(rename('activator.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/durandal'));
+	gulp.src(['bower_components/Durandal/js/app.js'])
+		.pipe(jshint())
+		.pipe(rename('app.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/durandal'));
+	gulp.src(['bower_components/Durandal/js/binder.js'])
+		.pipe(jshint())
+		.pipe(rename('binder.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/durandal'));
+	gulp.src(['bower_components/Durandal/js/composition.js'])
+		.pipe(jshint())
+		.pipe(rename('composition.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/durandal'));
+	gulp.src(['bower_components/Durandal/js/events.js'])
+		.pipe(jshint())
+		.pipe(rename('events.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/durandal'));
+	gulp.src(['bower_components/Durandal/js/system.js'])
+		.pipe(jshint())
+		.pipe(rename('system.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/durandal'));
+	gulp.src(['bower_components/Durandal/js/viewEngine.js'])
+		.pipe(jshint())
+		.pipe(rename('viewEngine.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/durandal'));
+	return gulp.src(['bower_components/Durandal/js/viewLocator.js'])
+		.pipe(jshint())
+		.pipe(rename('viewLocator.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/durandal'));
+});
+
+gulp.task('flot', function () {
+	gulp.src(['bower_components/Flot/jquery.flot.js'])
+			//.pipe(jshint())
+			//.pipe(rename('flot.js'))
+			//.pipe(uglify())
+			.pipe(gulp.dest('js/lib/flot'));
+	gulp.src(['bower_components/Flot/jquery.flot.selection.js'])
+			//.pipe(jshint())
+			//.pipe(rename('flot.selection.js'))
+			//.pipe(uglify())
+			.pipe(gulp.dest('js/lib/flot'));
+	gulp.src(['bower_components/Flot/jquery.flot.time.js'])
+			//.pipe(jshint())
+			//.pipe(rename('flot.time.js'))
+			//.pipe(uglify())
+			.pipe(gulp.dest('js/lib/flot'));
+	return gulp.src(['bower_components/Flot/jquery.flot.resize.js'])
+		//.pipe(jshint())
+		//.pipe(rename('flot.resize.js'))
+		//.pipe(uglify())
+		.pipe(gulp.dest('js/lib/flot'));
+});
+
+gulp.task('jquery', function () {
+	return gulp.src(['bower_components/jquery/dist/jquery.js'])
+		.pipe(jshint())
+		.pipe(rename('jquery.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/jquery'));
+});
+
+gulp.task('knockout', function () {
+	return gulp.src(['bower_components/knockout/dist/knockout.js'])
+		.pipe(jshint())
+		.pipe(rename('knockout.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/knockout'));
+});
+
+gulp.task('knockout-projections', function () {
+	return gulp.src(['bower_components/knockout-projections/dist/knockout-projections.js'])
+		.pipe(jshint())
+		.pipe(rename('knockout.projections.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/knockout'));
+});
+
+gulp.task('knockout-validation', function () {
+	return gulp.src(['bower_components/knockout-validation/dist/knockout.validation.js'])
+		.pipe(jshint())
+		.pipe(rename('knockout.validation.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/knockout'));
+});
+
+gulp.task('modernizr', function () {
+	return gulp.src(['bower_components/modernizr/modernizr.js'])
+		.pipe(jshint())
+		.pipe(rename('modernizr.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/modernizr'));
+});
+
+gulp.task('require', function () {
+	return gulp.src(['bower_components/requirejs/require.js'])
+		.pipe(jshint())
+		.pipe(rename('require.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/require'));
+});
+
+gulp.task('semantic', function () {
+	return gulp.src(['bower_components/semantic/dist/semantic.js'])
+		.pipe(jshint())
+		.pipe(rename('semantic.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/semantic'));
+});
+
+gulp.task('text', function () {
+	return gulp.src(['bower_components/text/text.js'])
+		.pipe(jshint())
+		.pipe(rename('text.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/text'));
+});
+
+gulp.task('toastr', function () {
+	return gulp.src(['bower_components/toastr/toastr.js'])
+		.pipe(jshint())
+		.pipe(rename('toastr.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/toastr'));
+});
+
+gulp.task('touchspin', function () {
+	return gulp.src(['bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js'])
+		.pipe(jshint())
+		.pipe(rename('touchspin.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/touchspin'));
+});
+
+gulp.task('javascript', ['bootstrap', 'datepicker', 'durandal', 'flot', 'jquery', 'knockout', 'knockout-projections', 'knockout-validation', 'modernizr', 'require', 'semantic', 'text', 'toastr', 'touchspin'], function () {
+
+});
+
+gulp.task('css-lib', function () {
+	return gulp.src(['bower_components/bootstrap/dist/css/bootstrap.css', 'bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css', 'bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css', 'bower_components/font-awesome/css/font-awesome.css', 'bower_components/Durandal/css/durandal.css', 'bower_components/toastr/toastr.css', 'bower_components/semantic/dist/semantic.css'])
+		.pipe(sourcemaps.init())
 		.pipe(minifyCss())
+		.pipe(concat('lib.min.css'))
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest('css'));
+});
+
+gulp.task('css-app', function () {
+	return gulp.src(['Less/app.less'])
+		.pipe(less())
+		.pipe(sourcemaps.init())
+		.pipe(minifyCss())
+		.pipe(concat('app.min.css'))
+		.pipe(sourcemaps.write())
 		.pipe(gulp.dest('css'));
 });
 
 gulp.task('fonts', function () {
 	return gulp.src(['./bower_components/font-awesome/fonts/**/*.{ttf,woff,woff2,otf,eot,svg}', 'bower_components/bootstrap/fonts/**/*.{ttf,woff,woff2,eot,svg}'])
 		.pipe(gulp.dest('fonts'));
+});
+
+gulp.task('watch', function () {
+	gulp.watch(['Less/app.less'], ['css-app']);
 });
 
 gulp.task('default', function () {
