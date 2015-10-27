@@ -16,13 +16,24 @@
 					<a data-bind="attr: { href: hash }, html: title"></a>
 				</li>
 				<!-- /ko -->
-				<li><a href="#" data-bind="click: logout, visible: session.isLoggedIn">Logout</a></li>
+				<li class="dropdown" data-bind="visible: session.isLoggedIn">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img data-bind="attr:{ src: gravatar }"> <span data-bind="text: fullName"></span> <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#" data-bind="click: displayEditProfile">Edit Profile</a></li>
+						<li><a href="#" data-bind="click: logout">Logout</a></li>
+					</ul>
+				</li>
 			</ul>
 		</div>
 	</nav>
 </header>
 
 <main data-bind="router: { cacheViews: false }"></main>
+
+<aside>
+	<button type="button" class="close" data-bind="click: hideEditProfile"><span class="fa fa-fw fa-close"></span></button>
+	<h2>Profile</h2>
+</aside>
 
 <footer>
 	<div class="container">

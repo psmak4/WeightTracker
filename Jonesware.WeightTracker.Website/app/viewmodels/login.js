@@ -63,7 +63,7 @@
 				session.user(data);
 				session.isLoggedIn(true);
 
-				router.navigate('/home');
+				router.navigate('/weighins');
 			})
 			.fail(function (jqXHR, textStatus, errorThrown) {
 				utilities.HandleAjaxError(jqXHR, self.errors);

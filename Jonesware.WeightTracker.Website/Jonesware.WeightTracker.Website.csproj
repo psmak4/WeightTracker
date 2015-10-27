@@ -212,8 +212,6 @@
     <Content Include="app\services\utilities.js" />
     <Content Include="app\views\forgotpassword.html" />
     <Content Include="app\viewmodels\forgotpassword.js" />
-    <Content Include="app\views\home.html" />
-    <Content Include="app\viewmodels\home.js" />
     <Content Include="app\views\stats.html" />
     <Content Include="app\viewmodels\stats.js" />
     <Content Include="app\views\profile.html" />

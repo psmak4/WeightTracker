@@ -8,6 +8,7 @@
 @black: #3A4448;
 
 @import "../bower_components/bootstrap/less/variables";
+@import "../bower_components/bootstrap/less/mixins";
 @import "_carousel.less";
 
 /*
@@ -15,6 +16,12 @@
 	https://color.adobe.com/Red-Blue-Silver3-color-theme-2033364/
 	https://color.adobe.com/Flat-UI-color-theme-2469224/
 */
+
+.container {
+	@media (min-width: @screen-sm-min) {
+		max-width: 900px;
+	}
+}
 
 body {
 	padding-top: 50px;
@@ -37,6 +44,14 @@ footer {
 .navbar {
 	border-radius: 0;
 	border: none;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+	img {
+		margin-top: -13px;
+		margin-bottom: -13px;
+		margin-left: -15px;
+	}
 }
 
 .navbar-inverse {
@@ -100,14 +115,17 @@ footer {
 
 #NewWeighInForm {
 	margin-top: 20px;
+
+	.form-group {
+		@media (min-width: @screen-sm-min) {
+			margin: 0;
+		}
+	}
 }
 
 .btn {
 	box-shadow: none;
 	text-transform: none;
-}
-
-.btn-lg {
 }
 
 .btn-primary {
@@ -220,7 +238,6 @@ a.list-group-item, button.list-group-item {
 }
 
 .page-header {
-	margin-top: 0;
 	border-bottom: 0;
 	color: @black;
 }
@@ -318,4 +335,28 @@ a.list-group-item, button.list-group-item {
 .demo-placeholder {
 	width: 100%;
 	height: 100%;
+}
+
+aside {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 10000;
+	width: 0;
+	background-color: @black;
+	color: #FFF;
+	overflow: hidden;
+	.transition(all 0.5s ease-in);
+
+	&.in {
+		width: 350px;
+	}
+
+	.close {
+		color: #FFF;
+		text-shadow: none;
+		opacity: 1;
+		font-weight: normal;
+	}
 }

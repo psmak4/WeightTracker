@@ -215,7 +215,7 @@ gulp.task('javascript', ['bootstrap', 'datepicker', 'durandal', 'flot', 'jquery'
 });
 
 gulp.task('css-lib', function () {
-	return gulp.src(['bower_components/bootstrap/dist/css/bootstrap.css', 'bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css', 'bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css', 'bower_components/font-awesome/css/font-awesome.css', 'bower_components/Durandal/css/durandal.css', 'bower_components/toastr/toastr.css', 'bower_components/semantic/dist/semantic.css'])
+	return gulp.src(['bower_components/bootstrap/dist/css/bootstrap.css', 'bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css', 'bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css', 'bower_components/font-awesome/css/font-awesome.css', 'bower_components/Durandal/css/durandal.css', 'bower_components/toastr/toastr.css'])
 		.pipe(sourcemaps.init())
 		.pipe(minifyCss())
 		.pipe(concat('lib.min.css'))
