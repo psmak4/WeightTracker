@@ -1,5 +1,6 @@
 ﻿requirejs.config({
 	paths: {
+		'adminLTE': '/js/lib/adminLTE/adminLTE',
 		'bootstrap': '/js/lib/bootstrap/bootstrap',
 		'datepicker': '/js/lib/datepicker/datepicker',
 		'durandal': '/js/lib/durandal',
@@ -15,7 +16,6 @@
 		'logger': '/app/services/logger',
 		'plugins': '/js/lib/durandal/plugins',
 		'security': '/app/services/security',
-		'semantic': '/js/lib/semantic/semantic',
 		'session': '/app/global/session',
 		'settings': '/app/settings',
 		'text': '/js/lib/text/text',
@@ -26,6 +26,7 @@
 	},
 	urlArgs: "bust=" + (new Date()).getTime(),
 	shim: {
+		'adminLTE': ['bootstrap'],
 		'bootstrap': ['jquery'],
 		'datepicker': ['bootstrap'],
 		'flot': ['jquery'],

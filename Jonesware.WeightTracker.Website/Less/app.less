@@ -24,7 +24,6 @@
 }
 
 body {
-	padding-top: 50px;
 	font-family: 'Open Sans', sans-serif;
 }
 
@@ -32,13 +31,6 @@ body {
 	padding-top: 24px;
 	padding-left: 15px;
 	padding-right: 15px;
-}
-
-footer {
-	padding: 24px 0;
-	background-color: lighten(@primary-color, 10%);
-	color: #fff;
-	font-size: 14px;
 }
 
 .navbar {
@@ -335,28 +327,4 @@ a.list-group-item, button.list-group-item {
 .demo-placeholder {
 	width: 100%;
 	height: 100%;
-}
-
-aside {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	z-index: 10000;
-	width: 0;
-	background-color: @black;
-	color: #FFF;
-	overflow: hidden;
-	.transition(all 0.5s ease-in);
-
-	&.in {
-		width: 350px;
-	}
-
-	.close {
-		color: #FFF;
-		text-shadow: none;
-		opacity: 1;
-		font-weight: normal;
-	}
 }

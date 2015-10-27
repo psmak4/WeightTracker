@@ -8,6 +8,14 @@ var rename = require("gulp-rename");
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 
+gulp.task('adminLTE', function () {
+	return gulp.src(['bower_components/AdminLTE/dist/js/app.js'])
+		.pipe(jshint())
+		.pipe(rename('adminLTE.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('js/lib/adminLTE'));
+});
+
 gulp.task('bootstrap', function () {
 	return gulp.src(['bower_components/bootstrap/dist/js/bootstrap.js'])
 		.pipe(jshint())
@@ -178,14 +186,6 @@ gulp.task('require', function () {
 		.pipe(gulp.dest('js/lib/require'));
 });
 
-gulp.task('semantic', function () {
-	return gulp.src(['bower_components/semantic/dist/semantic.js'])
-		.pipe(jshint())
-		.pipe(rename('semantic.js'))
-		.pipe(uglify())
-		.pipe(gulp.dest('js/lib/semantic'));
-});
-
 gulp.task('text', function () {
 	return gulp.src(['bower_components/text/text.js'])
 		.pipe(jshint())
@@ -210,12 +210,12 @@ gulp.task('touchspin', function () {
 		.pipe(gulp.dest('js/lib/touchspin'));
 });
 
-gulp.task('javascript', ['bootstrap', 'datepicker', 'durandal', 'flot', 'jquery', 'knockout', 'knockout-projections', 'knockout-validation', 'modernizr', 'require', 'semantic', 'text', 'toastr', 'touchspin'], function () {
+gulp.task('javascript', ['adminLTE', 'bootstrap', 'datepicker', 'durandal', 'flot', 'jquery', 'knockout', 'knockout-projections', 'knockout-validation', 'modernizr', 'require', 'text', 'toastr', 'touchspin'], function () {
 
 });
 
 gulp.task('css-lib', function () {
-	return gulp.src(['bower_components/bootstrap/dist/css/bootstrap.css', 'bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css', 'bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css', 'bower_components/font-awesome/css/font-awesome.css', 'bower_components/Durandal/css/durandal.css', 'bower_components/toastr/toastr.css'])
+	return gulp.src(['bower_components/bootstrap/dist/css/bootstrap.css', 'bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css', 'bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css', 'bower_components/font-awesome/css/font-awesome.css', 'bower_components/Durandal/css/durandal.css', 'bower_components/toastr/toastr.css', 'bower_components/AdminLTE/dist/css/AdminLTE.css', 'bower_components/AdminLTE/dist/css/skins/_all-skins.css'])
 		.pipe(sourcemaps.init())
 		.pipe(minifyCss())
 		.pipe(concat('lib.min.css'))

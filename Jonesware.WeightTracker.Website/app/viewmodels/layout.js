@@ -1,12 +1,22 @@
-﻿define(['plugins/router', 'jquery', 'knockout', 'session', 'jquery.utilities', 'bootstrap', 'semantic'], function (router, $, ko, session) {
+﻿define(['plugins/router', 'jquery', 'knockout', 'session', 'jquery.utilities', 'bootstrap', 'adminLTE'], function (router, $, ko, session) {
 	var viewModel = function () {
 		var self = this;
 
 		self.router = router;
 		self.session = session;
-		self.userName = ko.observable();
-		self.fullName = ko.observable();
-		self.gravatar = ko.observable();
+
+		self.fullName = ko.computed(function () {
+			if (session.isLoggedIn())
+				return session.user().fullName;
+
+			return '';
+		});
+		self.gravatar = ko.computed(function () {
+			if (session.isLoggedIn())
+				return 'http://www.gravatar.com/avatar/' + session.user().emailHash + '?s=160&d=identicon';
+
+			return '';
+		});
 
 		self.activate = function () {
 			var dfd = $.Deferred();
@@ -23,9 +33,6 @@
 					session.accessToken(accessToken);
 					session.user(data);
 					session.isLoggedIn(true);
-					self.userName(session.user().userName);
-					self.fullName(session.user().fullName);
-					self.gravatar('http://www.gravatar.com/avatar/' + session.user().emailHash + '?s=50&d=identicon');
 				}).fail(function (jqXHR, textStatus, errorThrown) {
 					session.clear();
 				}).always(function () {
@@ -52,8 +59,8 @@
 		}
 
 		self.logout = function () {
-			session.clear();
 			router.navigate('/');
+			session.clear();
 		};
 
 		self.displayRoute = function (route) {
@@ -63,13 +70,9 @@
 				return route.displayUnauthenticated;
 		};
 
-		self.displayEditProfile = function () {
-			$('aside').addClass('in');
+		self.toggleControlSidebar = function () {
+			$('.control-sidebar').toggleClass('control-sidebar-open');
 		};
-
-		self.hideEditProfile = function () {
-			$('aside').removeClass('in');
-		}
 
 		function setupRouter() {
 			router.map([

@@ -8,8 +8,8 @@
 		self.baseUrl = 'http://localhost:50347';
 
 		self.clear = function () {
-			self.user(null);
 			self.isLoggedIn(false);
+			self.user(null);
 			self.accessToken(null);
 			localStorage.removeItem('accessToken');
 		};

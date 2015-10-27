@@ -17,7 +17,8 @@
     "text": "requirejs-text#~2.0.14",
     "knockout-validation": "~2.0.3",
     "toastr": "~2.1.2",
-    "semantic": "semantic-ui#~2.1.4"
+    "semantic": "semantic-ui#~2.1.4",
+    "AdminLTE": "admin-lte#~2.3.2"
   },
   "ignore": [
     "**/.*",

@@ -261,7 +261,6 @@
     <Content Include="js\lib\knockout\knockout.validation.js" />
     <Content Include="js\lib\modernizr\modernizr.js" />
     <Content Include="js\lib\require\require.js" />
-    <Content Include="js\lib\semantic\semantic.js" />
     <Content Include="js\lib\text\text.js" />
     <Content Include="js\lib\toastr\toastr.js" />
     <Content Include="js\lib\touchspin\touchspin.js" />
