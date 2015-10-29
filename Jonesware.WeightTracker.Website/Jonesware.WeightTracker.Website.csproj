@@ -216,8 +216,8 @@
     <Content Include="app\viewmodels\stats.js" />
     <Content Include="app\views\profile.html" />
     <Content Include="app\viewmodels\profile.js" />
-    <Content Include="app\views\weighins.html" />
-    <Content Include="app\viewmodels\weighins.js" />
+    <Content Include="app\views\dashboard.html" />
+    <Content Include="app\viewmodels\dashboard.js" />
     <Content Include="app\views\index.html" />
     <Content Include="app\viewmodels\index.js" />
     <Content Include="app\views\layout.html" />
@@ -290,6 +290,7 @@
     <Content Include="Views\Shared\_Minimal.cshtml" />
     <Content Include="Less\app.less" />
     <Content Include="Less\_carousel.less" />
+    <Content Include="Less\_scrollbars.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -306,8 +307,7 @@
   <ItemGroup>
     <Compile Include="ApiModels\Accounts\UserApiModel.cs" />
     <Compile Include="ApiModels\Roles\RoleApiModel.cs" />
-    <Compile Include="ApiModels\WeighIns\BodyFatApiModel.cs" />
-    <Compile Include="ApiModels\WeighIns\BodyMassIndexApiModel.cs" />
+    <Compile Include="ApiModels\WeighIns\StatsApiModel.cs" />
     <Compile Include="ApiModels\WeighIns\WeighInApiModel.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="BindingModels\Accounts\ChangePasswordBindingModel.cs" />

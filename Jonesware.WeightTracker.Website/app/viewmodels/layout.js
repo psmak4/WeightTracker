@@ -70,10 +70,6 @@
 				return route.displayUnauthenticated;
 		};
 
-		self.toggleControlSidebar = function () {
-			$('.control-sidebar').toggleClass('control-sidebar-open');
-		};
-
 		function setupRouter() {
 			router.map([
 				{ route: '', title: 'Index', moduleId: 'viewmodels/index', nav: false },
@@ -81,13 +77,13 @@
 				{ route: 'register', title: 'Register', moduleId: 'viewmodels/register', nav: true, displayUnauthenticated: true, displayAuthenticated: false },
 				{ route: 'forgotpassword', title: 'Forgot Password', moduleId: 'viewmodels/forgotpassword', nav: false },
 				{ route: 'resetpassword', title: 'Reset Password', moduleId: 'viewmodels/resetpassword', nav: false },
-				{ route: 'weighins', moduleId: 'viewmodels/weighins', title: 'Weigh Ins', nav: true, requiredRoles: ['User'], displayUnauthenticated: false, displayAuthenticated: true },
-				{ route: 'stats', moduleId: 'viewmodels/stats', title: 'Statistics', nav: true, requiredRoles: ['User'], displayUnauthenticated: false, displayAuthenticated: true },
+				{ route: 'dashboard', moduleId: 'viewmodels/dashboard', title: 'Dashboard', nav: true, requiredRoles: ['User'], displayUnauthenticated: false, displayAuthenticated: true },
+				{ route: 'profile', moduleId: 'viewmodels/profile', title: 'Profile', nav: false, requiredRoles: ['User'] }
 			]).buildNavigationModel();
 
 			router.guardRoute = function (routeInfo, params, instance) {
 				console.log(params.config.loginRequired, params.config);
-				if (typeof (params.config.requiredRoles) === "undefined")
+				if (typeof (params.config.requiredRoles) === 'undefined')
 					return true;
 
 				var res = session.userIsInRole(params.config.requiredRoles);

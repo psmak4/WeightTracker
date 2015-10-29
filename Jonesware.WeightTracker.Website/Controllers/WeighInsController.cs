@@ -83,31 +83,15 @@ namespace Jonesware.WeightTracker.Website.Controllers
 
 		[HttpGet]
 		[Authorize]
-		[Route("getbmi")]
-		public async Task<IHttpActionResult> GetBMI()
-		{
-			var user = await this.AppUserManager.FindByIdAsync(User.Identity.GetUserId());
-			if (user != null)
-			{
-				var weights = weighInService.GetUserWeighIns(user.Id);
-				decimal? weight = weights.Any() ? weights.OrderByDescending(w => w.DateRecorded).First().Weight : new decimal?();
-				return Ok(new BodyMassIndexApiModel(weight, user.Height));
-			}
-
-			return NotFound();
-		}
-
-		[HttpGet]
-		[Authorize]
-		[Route("getbodyfat")]
-		public async Task<IHttpActionResult> GetBodyFat()
+		[Route("getstats")]
+		public async Task<IHttpActionResult> GetStats()
 		{
 			var user = await AppUserManager.FindByIdAsync(User.Identity.GetUserId());
 			if (user != null)
 			{
 				var weights = weighInService.GetUserWeighIns(user.Id);
 				decimal? weight = weights.Any() ? weights.OrderByDescending(w => w.DateRecorded).First().Weight : new decimal?();
-				return Ok(new BodyFatApiModel(weight, user.Height, GetAge(user.DateOfBirth), user.Gender));
+				return Ok(new StatsApiModel(weight, user.Height, GetAge(user.DateOfBirth), user.Gender));
 			}
 
 			return NotFound();

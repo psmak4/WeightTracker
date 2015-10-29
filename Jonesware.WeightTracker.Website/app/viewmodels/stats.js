@@ -4,13 +4,16 @@
 
 		self.bodyFat = ko.observable();
 		self.bmi = ko.observable();
+		self.weight = ko.observable();
 		self.canCalculate = ko.observable();
+		self.bodyClass = ko.observable();
+
 		self.errors = ko.observableArray([]);
 
-		self.getBodyFat = function () {
+		self.getStats = function () {
 			$.ajax({
 				method: "GET",
-				url: session.baseUrl + '/api/weighins/getbodyfat',
+				url: session.baseUrl + '/api/weighins/getstats',
 				headers: {
 					Authorization: 'Bearer ' + session.accessToken()
 				}
@@ -20,6 +23,7 @@
 				if (self.canCalculate()) {
 					self.bodyFat(data.bodyFat.value.toFixed(2));
 					self.bmi(data.bodyFat.bmi.value.toFixed(2));
+					self.weight(data.weight);
 				}
 			})
 			.fail(function (jqXHR, textStatus, errorThrown) {
@@ -36,7 +40,9 @@
 		};
 
 		self.attached = function () {
-			self.getBodyFat();
+			self.getStats();
+
+			self.bodyClass(session.user().gender === 'm' ? 'fa fa-male' : 'fa fa-female');
 		};
 	};
 

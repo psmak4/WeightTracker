@@ -1,66 +1,95 @@
-﻿<div class="container">
-	<div class="page-header"><h1>Statistics</h1></div>
+﻿<div class="content-wrapper">
+	<div class="container">
+		<div class="page-header"><h1>Statistics</h1></div>
 
-	<div data-bind="visible: canCalculate()">
-		<div class="row">
-			<div class="col-sm-6">
-				<div class="well well-lg text-center">
-					<span class="h5 text-muted">Body Mass Index</span><br /><span class="h1" data-bind="text: bmi"></span>
+		<div class="row" data-bind="visible: canCalculate()">
+			<div class="col-sm-4">
+				<div class="small-box bg-light-blue">
+					<div class="inner">
+						<h3 data-bind="text: weight"></h3>
+						<p>Most Recent Weight</p>
+					</div>
+					<div class="icon">
+						<span class="fa fa-balance-scale"></span>
+					</div>
+					<div class="small-box-footer"></div>
 				</div>
 			</div>
-			<div class="col-sm-6">
-				<div class="well well-lg text-center">
-					<span class="h5 text-muted">Body Fat Percentage</span><br /><span class="h1" data-bind="text: bodyFat"></span>
+			<div class="col-sm-4">
+				<div class="small-box bg-light-blue">
+					<div class="inner">
+						<h3 data-bind="text: bmi"></h3>
+						<p>Body Mass Index</p>
+					</div>
+					<div class="icon">
+						<span class="fa fa-bar-chart"></span>
+					</div>
+					<div class="small-box-footer"></div>
 				</div>
 			</div>
-		</div>
-
-		<p>We were able to calculate your Body Fat Percentage based on the information you have given us in your Profile and from your latest Weigh In.</p>
-	</div>
-
-	<p class="text-center"><img class="img-thumbnail" src="/images/bmi-for-men-and-women.png" alt="Image taken from Medical News Today." title="Body Mass Index Chart" /></p>
-
-
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-		<div class="panel panel-default">
-			<div class="panel-heading" role="tab" id="headingOne">
-				<h4 class="panel-title">
-					<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">What is Body Mass Index?</a>
-				</h4>
-			</div>
-			<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-				<div class="panel-body">
-					<p>Body mass index (BMI) is a measure of body fat based on your weight in relation to your height, and applies to most adult men and women aged 20 and over.  In general, the higher the number, the more body fat a person has. BMI is often used as a screening tool to decide if your weight might be putting you at risk for health problems such as heart disease, diabetes, and cancer.</p>
-
-					<p>
-						Although BMI can be used for most men and women, it does have some limits:
-						<ul>
-							<li>It may overestimate body fat in athletes and others who have a muscular build.</li>
-							<li>It may underestimate body fat in older persons and others who have lost muscle.</li>
-						</ul>
-					</p>
-
-					<hr />
-
-					<p class="small"><em>Additional information on BMI may be found at the following resources:</em></p>
-					<ul class="small">
-						<li><a href="http://www.medicalnewstoday.com/info/obesity/what-is-bmi.php" target="_blank">Medical News Today</a></li>
-						<li><a href="http://halls.md/body-mass-index/av.htm" target="_blank">Halls.MD</a></li>
-						<li><a href="http://www.nhlbi.nih.gov/health/educational/lose_wt/risk.htm" target="_blank">National Heart, Lung, and Blood Institute</a></li>
-						<li><a href="http://www.cancer.org/cancer/cancercauses/dietandphysicalactivity/bodyweightandcancerrisk/body-weight-and-cancer-risk-adult-bmi" target="_blank">American Cancer Society</a></li>
-					</ul>
+			<div class="col-sm-4">
+				<div class="small-box bg-light-blue">
+					<div class="inner">
+						<h3 data-bind="text: bodyFat"></h3>
+						<p>Body Fat Percentage</p>
+					</div>
+					<div class="icon">
+						<span data-bind="css: bodyClass"></span>
+					</div>
+					<div class="small-box-footer"></div>
 				</div>
 			</div>
 		</div>
 
-		<div class="panel panel-default">
-			<div class="panel-heading" role="tab" id="headingTwo">
-				<h4 class="panel-title">
-					<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">What is Body Fat Percentage?</a>
-				</h4>
-			</div>
-			<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-				<div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+		<div class="box">
+			<div class="box-body">
+				<p data-bind="visible: canCalculate()">We were able to calculate your Body Fat Percentage based on the information you have given us in your Profile and from your latest Weigh In.</p>
+
+				<p class="text-center"><img class="img-thumbnail" src="/images/bmi-for-men-and-women.png" alt="Image taken from Medical News Today." title="Body Mass Index Chart" /></p>
+
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingOne">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">What is Body Mass Index?</a>
+							</h4>
+						</div>
+						<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+							<div class="panel-body">
+								<p>Body mass index (BMI) is a measure of body fat based on your weight in relation to your height, and applies to most adult men and women aged 20 and over.  In general, the higher the number, the more body fat a person has. BMI is often used as a screening tool to decide if your weight might be putting you at risk for health problems such as heart disease, diabetes, and cancer.</p>
+
+								<p>
+									Although BMI can be used for most men and women, it does have some limits:
+									<ul>
+										<li>It may overestimate body fat in athletes and others who have a muscular build.</li>
+										<li>It may underestimate body fat in older persons and others who have lost muscle.</li>
+									</ul>
+								</p>
+
+								<hr />
+
+								<p class="small"><em>Additional information on BMI may be found at the following resources:</em></p>
+								<ul class="small">
+									<li><a href="http://www.medicalnewstoday.com/info/obesity/what-is-bmi.php" target="_blank">Medical News Today</a></li>
+									<li><a href="http://halls.md/body-mass-index/av.htm" target="_blank">Halls.MD</a></li>
+									<li><a href="http://www.nhlbi.nih.gov/health/educational/lose_wt/risk.htm" target="_blank">National Heart, Lung, and Blood Institute</a></li>
+									<li><a href="http://www.cancer.org/cancer/cancercauses/dietandphysicalactivity/bodyweightandcancerrisk/body-weight-and-cancer-risk-adult-bmi" target="_blank">American Cancer Society</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingTwo">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">What is Body Fat Percentage?</a>
+							</h4>
+						</div>
+						<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+							<div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

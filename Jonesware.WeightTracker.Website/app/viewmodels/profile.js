@@ -3,6 +3,7 @@
 		var self = this;
 		var submit;
 
+		self.session = session;
 		self.userName = ko.observable();
 		self.email = ko.observable();
 		self.name = ko.observable();
@@ -21,10 +22,17 @@
 		self.genderOptions = [{ value: 'm', text: 'Male' }, { value: 'f', text: 'Female' }];
 		self.dateJoined = ko.observable();
 
+		self.gravatar = ko.computed(function () {
+			if (session.isLoggedIn())
+				return 'http://www.gravatar.com/avatar/' + session.user().emailHash + '?s=160&d=identicon';
+
+			return '';
+		});
+
 		self.viewMode = ko.observable('view');
 
 		self.errors = ko.observableArray([]);
-		self.validationErrors = ko.validation.group([self.newWeighInWeight, self.newWeighInDate]);
+		self.validationErrors = ko.validation.group([self.firstNameEdit, self.lastNameEdit, self.birthDateEdit, self.heightEdit, self.genderEdit]);
 
 		self.editProfile = function () {
 			self.firstNameEdit(self.firstName());
@@ -40,6 +48,11 @@
 		};
 
 		self.cancelEdit = function () {
+			self.firstNameEdit.clearError();
+			self.lastNameEdit.clearError();
+			self.birthDateEdit.clearError();
+			self.heightEdit.clearError();
+			self.genderEdit.clearError();
 			self.viewMode('view');
 		}
 
@@ -104,8 +117,6 @@
 		};
 
 		function GetProfileFromSession() {
-			self.userName(session.user().userName);
-			self.email(session.user().email);
 			self.name(session.user().fullName);
 			self.firstName(session.user().firstName);
 			self.lastName(session.user().lastName);
@@ -114,7 +125,6 @@
 			self.heightText(CalculateHeight(session.user().height));
 			self.gender(session.user().gender);
 			self.genderText(session.user().gender === 'm' ? 'Male' : 'Female');
-			self.dateJoined(new Date(session.user().dateCreated).toLocaleDateString());
 		}
 
 		function CalculateHeight(height) {
