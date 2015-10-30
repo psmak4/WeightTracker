@@ -12,7 +12,7 @@
 		self.lastName = ko.observable();
 		self.lastNameEdit = ko.observable().extend({ required: true });
 		self.birthDate = ko.observable();
-		self.birthDateEdit = ko.observable().extend({ required: true, date: true });
+		self.birthDateEdit = ko.observable().extend({ required: true });
 		self.height = ko.observable();
 		self.heightEdit = ko.observable().extend({ required: true, number: true });
 		self.heightText = ko.observable();
@@ -48,11 +48,7 @@
 		};
 
 		self.cancelEdit = function () {
-			self.firstNameEdit.clearError();
-			self.lastNameEdit.clearError();
-			self.birthDateEdit.clearError();
-			self.heightEdit.clearError();
-			self.genderEdit.clearError();
+			ClearValidationErrors();
 			self.viewMode('view');
 		}
 
@@ -114,6 +110,8 @@
 			});
 
 			submit = $('#Submit');
+
+			ClearValidationErrors();
 		};
 
 		function GetProfileFromSession() {
@@ -134,6 +132,14 @@
 			inches = height % 12;
 
 			return feet + '\' ' + inches + '"';
+		}
+
+		function ClearValidationErrors() {
+			self.firstNameEdit.clearError();
+			self.lastNameEdit.clearError();
+			self.birthDateEdit.clearError();
+			self.heightEdit.clearError();
+			self.genderEdit.clearError();
 		}
 
 		return self;

@@ -1,0 +1,49 @@
+﻿.splash {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	#gradient.radial(lighten(@light-blue, 20%), darken(@light-blue, 20%));
+
+	.splash__content {
+		color: #FFF;
+		text-align: center;
+
+		.splash__title {
+			font-family: 'Special Elite', cursive;
+			font-size: 50px;
+			font-weight: normal;
+			text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+
+			@media (min-width: @screen-sm-min) {
+				font-size: 60px;
+				white-space: nowrap;
+			}
+
+			@media (min-width: @screen-md-min) {
+				font-size: 75px;
+			}
+
+			@media (min-width: @screen-lg-min) {
+				font-size: 100px;
+			}
+		}
+
+		.splash__icon {
+			font-size: 50px;
+			text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+
+			@media (min-width: @screen-sm-min) {
+				font-size: 60px;
+			}
+
+			@media (min-width: @screen-md-min) {
+				font-size: 75px;
+			}
+
+			@media (min-width: @screen-lg-min) {
+				font-size: 100px;
+			}
+		}
+	}
+}

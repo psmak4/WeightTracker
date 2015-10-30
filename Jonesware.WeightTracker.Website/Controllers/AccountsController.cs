@@ -82,12 +82,12 @@ namespace Jonesware.WeightTracker.Website.Controllers
 				DateCreated = DateTime.Now.Date
 			};
 
-			IdentityResult addUserResult = await this.AppUserManager.CreateAsync(user, createUserModel.Password);
+			var addUserResult = await AppUserManager.CreateAsync(user, createUserModel.Password);
 
 			if (!addUserResult.Succeeded)
-			{
 				return GetErrorResult(addUserResult);
-			}
+
+			AppUserManager.AddToRole(user.Id, "User");
 
 			string code = await this.AppUserManager.GenerateEmailConfirmationTokenAsync(user.Id);
 			var callbackUrl = new Uri(Url.Link("ConfirmEmailRoute", new { userId = user.Id, code = code }));

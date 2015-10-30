@@ -82,7 +82,7 @@
 			]).buildNavigationModel();
 
 			router.guardRoute = function (routeInfo, params, instance) {
-				console.log(params.config.loginRequired, params.config);
+				//console.log(params.config.loginRequired, params.config);
 				if (typeof (params.config.requiredRoles) === 'undefined')
 					return true;
 

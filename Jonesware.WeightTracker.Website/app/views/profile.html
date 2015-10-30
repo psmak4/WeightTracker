@@ -20,74 +20,75 @@
 					</div>
 				</div>
 			</div>
-
+			
 			<div class="col-sm-8">
-				<div class="row">
-					<form class="form-horizontal" data-bind="submit: updateProfile">
-						<div class="form-group">
-							<label class="col-sm-3 control-label">Username</label>
-							<div class="col-sm-9">
-								<p class="form-control-static" data-bind="text: session.user().userName"></p>
+				<div class="box box-primary">
+					<div class="box-body">
+						<form class="form-horizontal" data-bind="submit: updateProfile">
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Username</label>
+								<div class="col-sm-5">
+									<p class="form-control-static" data-bind="text: session.user().userName"></p>
+								</div>
 							</div>
-						</div>
 
-						<div class="form-group">
-							<label class="col-sm-3 control-label">Email</label>
-							<div class="col-sm-9">
-								<p class="form-control-static" data-bind="text: session.user().email"></p>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Email</label>
+								<div class="col-sm-5">
+									<p class="form-control-static" data-bind="text: session.user().email"></p>
+								</div>
 							</div>
-						</div>
 
-						<div class="form-group">
-							<label class="col-sm-3 control-label">Name</label>
-							<div class="col-sm-9">
-								<p class="form-control-static" data-bind="text: session.user().fullName, visible: viewMode() === 'view'"></p>
-								<div class="row" data-bind="visible: viewMode() === 'edit'">
-									<div class="col-sm-6">
-										<input type="text" class="form-control" placeholder="First Name" id="FirstName" data-bind="value: firstNameEdit" />
-									</div>
-									<div class="col-sm-6">
-										<input type="text" class="form-control" placeholder="Last Name" id="LastName" data-bind="value: lastNameEdit" />
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Name</label>
+								<div class="col-sm-5">
+									<p class="form-control-static" data-bind="text: session.user().fullName, visible: viewMode() === 'view'"></p>
+									<div class="row" data-bind="visible: viewMode() === 'edit'">
+										<div class="col-sm-6">
+											<input type="text" class="form-control" placeholder="First Name" id="FirstName" data-bind="value: firstNameEdit" />
+										</div>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" placeholder="Last Name" id="LastName" data-bind="value: lastNameEdit" />
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
 
-						<div class="form-group">
-							<label class="col-sm-3 control-label">Birthdate</label>
-							<div class="col-sm-9">
-								<p class="form-control-static" data-bind="text: new Date(session.user().dateOfBirth).toLocaleDateString(), visible: viewMode() === 'view'"></p>
-								<input type="text" class="form-control" placeholder="Birthdate" id="DateOfBirth" data-bind="value: birthDateEdit, visible: viewMode() === 'edit'" />
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Birthdate</label>
+								<div class="col-sm-5">
+									<p class="form-control-static" data-bind="text: new Date(session.user().dateOfBirth).toLocaleDateString(), visible: viewMode() === 'view'"></p>
+									<input type="text" class="form-control" placeholder="Birthdate" id="DateOfBirth" data-bind="value: birthDateEdit, visible: viewMode() === 'edit'" />
+								</div>
 							</div>
-						</div>
 
-						<div class="form-group">
-							<label class="col-sm-3 control-label">Height</label>
-							<div class="col-sm-9">
-								<p class="form-control-static" data-bind="text: heightText, visible: viewMode() === 'view'"></p>
-								<input type="number" class="form-control" placeholder="Height (inches)" id="Height" min="0" max="100" step="1" data-bind="value: heightEdit, visible: viewMode() === 'edit'" />
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Height</label>
+								<div class="col-sm-5">
+									<p class="form-control-static" data-bind="text: heightText, visible: viewMode() === 'view'"></p>
+									<input type="number" class="form-control" placeholder="Height (inches)" id="Height" min="0" max="100" step="1" data-bind="value: heightEdit, visible: viewMode() === 'edit'" />
+								</div>
 							</div>
-						</div>
 
-						<div class="form-group">
-							<label class="col-sm-3 control-label">Gender</label>
-							<div class="col-sm-9">
-								<p class="form-control-static" data-bind="text: genderText, visible: viewMode() === 'view'"></p>
-								<select class="form-control" data-bind="options: genderOptions, optionsText: 'text', value: genderEdit, optionsCaption: 'Gender', visible: viewMode() === 'edit'"></select>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Gender</label>
+								<div class="col-sm-5">
+									<p class="form-control-static" data-bind="text: genderText, visible: viewMode() === 'view'"></p>
+									<select class="form-control" data-bind="options: genderOptions, optionsText: 'text', value: genderEdit, optionsCaption: 'Gender', visible: viewMode() === 'edit'"></select>
+								</div>
 							</div>
-						</div>
 
-						<div class="form-group">
-							<div class="col-sm-offset-3 col-sm-9">
-								<button type="button" class="btn btn-primary" data-bind="click: editProfile, visible: viewMode() === 'view'">Edit</button>
-								<button type="submit" class="btn btn-primary" id="Submit" data-bind="visible: viewMode() === 'edit'">Submit</button>
-								<button type="button" class="btn btn-default" data-bind="click: cancelEdit, visible: viewMode() === 'edit'">Cancel</button>
+							<div class="form-group">
+								<div class="col-sm-offset-2 col-sm-5">
+									<button type="button" class="btn btn-primary" data-bind="click: editProfile, visible: viewMode() === 'view'">Edit</button>
+									<button type="submit" class="btn btn-primary" id="Submit" data-bind="visible: viewMode() === 'edit'">Submit</button>
+									<button type="button" class="btn btn-default" data-bind="click: cancelEdit, visible: viewMode() === 'edit'">Cancel</button>
+								</div>
 							</div>
-						</div>
-					</form>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
-
 	</div>
 </div>

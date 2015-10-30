@@ -1,4 +1,4 @@
-﻿define(['jquery', 'knockout', 'session', 'utilities', 'logger', 'datepicker', 'flot', 'flot.resize', 'flot.time'], function ($, ko, session, utilities, logger) {
+﻿define(['jquery', 'knockout', 'session', 'utilities', 'logger', 'datepicker', 'flot', 'flot.resize', 'flot.time', 'datatables.bootstrap', 'datatables.jquery'], function ($, ko, session, utilities, logger) {
 	var viewModel = function () {
 		var self = this;
 		var submit;
@@ -37,7 +37,7 @@
 			var curr_month = d.getMonth();
 			var curr_year = d.getFullYear();
 
-			return d_names[curr_day] + ', ' + m_names[curr_month] + curr_date + ', ' + curr_year;
+			return d_names[curr_day] + ', ' + m_names[curr_month] + ' ' + curr_date + ', ' + curr_year;
 		}
 
 		self.getWeighIns = function () {
@@ -53,6 +53,7 @@
 				if (self.weighIns().length > 0) {
 					processData(self.weighInsByDateAsc());
 					self.getStats();
+					$('#WeighInsTable').DataTable();
 				}
 			})
 			.fail(function (jqXHR, textStatus, errorThrown) {

@@ -154,14 +154,6 @@ gulp.task('knockout', function () {
 		.pipe(gulp.dest('js/lib/knockout'));
 });
 
-gulp.task('knockout-projections', function () {
-	return gulp.src(['bower_components/knockout-projections/dist/knockout-projections.js'])
-		.pipe(jshint())
-		.pipe(rename('knockout.projections.js'))
-		.pipe(uglify())
-		.pipe(gulp.dest('js/lib/knockout'));
-});
-
 gulp.task('knockout-validation', function () {
 	return gulp.src(['bower_components/knockout-validation/dist/knockout.validation.js'])
 		.pipe(jshint())
@@ -202,20 +194,12 @@ gulp.task('toastr', function () {
 		.pipe(gulp.dest('js/lib/toastr'));
 });
 
-gulp.task('touchspin', function () {
-	return gulp.src(['bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js'])
-		.pipe(jshint())
-		.pipe(rename('touchspin.js'))
-		.pipe(uglify())
-		.pipe(gulp.dest('js/lib/touchspin'));
-});
-
-gulp.task('javascript', ['adminLTE', 'bootstrap', 'datepicker', 'durandal', 'flot', 'jquery', 'knockout', 'knockout-projections', 'knockout-validation', 'modernizr', 'require', 'text', 'toastr', 'touchspin'], function () {
+gulp.task('javascript', ['adminLTE', 'bootstrap', 'datepicker', 'durandal', 'flot', 'jquery', 'knockout', 'knockout-validation', 'modernizr', 'require', 'text', 'toastr'], function () {
 
 });
 
 gulp.task('css-lib', function () {
-	return gulp.src(['bower_components/bootstrap/dist/css/bootstrap.css', 'bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css', 'bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css', 'bower_components/Durandal/css/durandal.css', 'bower_components/toastr/toastr.css', 'bower_components/AdminLTE/dist/css/AdminLTE.css', 'bower_components/AdminLTE/dist/css/skins/_all-skins.css'])
+	return gulp.src(['bower_components/Durandal/css/durandal.css', 'bower_components/AdminLTE/dist/css/AdminLTE.css', 'bower_components/AdminLTE/dist/css/skins/_all-skins.css', 'bower_components/animate.css/animate.css'])
 		.pipe(sourcemaps.init())
 		.pipe(minifyCss())
 		.pipe(concat('lib.min.css'))
@@ -239,7 +223,7 @@ gulp.task('fonts', function () {
 });
 
 gulp.task('watch', function () {
-	gulp.watch(['Less/app.less'], ['css-app']);
+	gulp.watch(['Less/app.less', 'Less/_carousel.less', 'Less/_scrollbars.less', 'Less/_splash.less'], ['css-app']);
 });
 
 gulp.task('default', function () {

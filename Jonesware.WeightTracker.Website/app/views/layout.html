@@ -29,7 +29,7 @@
 								</li>
 								<li class="user-footer">
 									<div class="pull-left">
-										<a href="/profile" class="btn btn-default btn-flat">Edit Profile</a>
+										<a href="/profile" class="btn btn-default btn-flat">Profile</a>
 									</div>
 									<div class="pull-right">
 										<a href="#" class="btn btn-default btn-flat" data-bind="click: logout">Logout</a>
@@ -43,7 +43,7 @@
 		</nav>
 	</header>
 
-	<main data-bind="router: { cacheViews: false }"></main>
+	<main data-bind="router: { cacheViews: false, transition: 'fadeIn' }"></main>
 
 	<footer class="main-footer">
 		<div class="container">

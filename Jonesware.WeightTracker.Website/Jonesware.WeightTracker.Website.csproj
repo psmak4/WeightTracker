@@ -247,6 +247,8 @@
     <Content Include="js\lib\durandal\plugins\widget.js" />
     <Content Include="js\lib\durandal\system.js" />
     <Content Include="js\lib\durandal\transitions\entrance.js" />
+    <Content Include="js\lib\durandal\transitions\fadeIn.js" />
+    <Content Include="js\lib\durandal\transitions\transitionHelper.js" />
     <Content Include="js\lib\durandal\viewEngine.js" />
     <Content Include="js\lib\durandal\viewLocator.js" />
     <Content Include="js\lib\flot\flot.js" />
@@ -291,6 +293,7 @@
     <Content Include="Less\app.less" />
     <Content Include="Less\_carousel.less" />
     <Content Include="Less\_scrollbars.less" />
+    <Content Include="Less\_splash.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
