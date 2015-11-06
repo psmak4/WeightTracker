@@ -1,4 +1,4 @@
-﻿<div class="wrapper">
+﻿<div class="wrapper" data-bind="css: session.siteTheme">
 	<header class="main-header">
 		<nav class="navbar navbar-static-top">
 			<div class="container">
@@ -17,15 +17,12 @@
 						<li class="dropdown user user-menu" data-bind="visible: session.isLoggedIn">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 								<img class="user-image" alt="User Image" data-bind="attr:{ src: gravatar }">
-								<span class="hidden-xs" data-bind="text: fullName"></span>
+								<span data-bind="text: session.user().fullName"></span>
 							</a>
 							<ul class="dropdown-menu">
 								<li class="user-header">
 									<img class="img-circle" alt="User Image" data-bind="attr:{ src: gravatar }">
-									<p>
-										<span data-bind="text: fullName"></span>
-										<small>Member since Nov. 2012</small>
-									</p>
+									<p><span data-bind="text: session.user().fullName"></span><small data-bind="text: 'Member since ' + new Date(session.user().dateCreated).toLocaleDateString()"></small></p>
 								</li>
 								<li class="user-footer">
 									<div class="pull-left">

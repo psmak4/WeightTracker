@@ -5,46 +5,40 @@ namespace Jonesware.WeightTracker.Website.BindingModels.Accounts
 {
 	public class CreateUserBindingModel
 	{
-		[Required]
+		[Required(ErrorMessage = "This field is required.")]
 		[EmailAddress]
-		[Display(Name = "Email")]
 		public string Email { get; set; }
 
-		[Required]
-		[Display(Name = "Username")]
+		[Required(ErrorMessage = "This field is required")]
 		public string Username { get; set; }
 
-		[Required]
-		[Display(Name = "First Name")]
+		[Required(ErrorMessage = "This field is required.")]
 		public string FirstName { get; set; }
 
-		[Required]
-		[Display(Name = "Last Name")]
+		[Required(ErrorMessage = "This field is required.")]
 		public string LastName { get; set; }
 
-		[Required]
+		[Required(ErrorMessage = "This field is required")]
 		[StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
 		[DataType(DataType.Password)]
-		[Display(Name = "Password")]
 		public string Password { get; set; }
 
-		[Required]
+		[Required(ErrorMessage = "This field is required.")]
 		[DataType(DataType.Password)]
-		[Display(Name = "Confirm password")]
 		[Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
 		public string ConfirmPassword { get; set; }
 
-		[Required]
-		[Display(Name = "Birthdate")]
-		public DateTime DateOfBirth { get; set; }
+		[Required(ErrorMessage = "This field is required.")]
+		public DateTime? DateOfBirth { get; set; }
 
-		[Required]
-		[Display(Name = "Height")]
-		public int Height { get; set; }
+		[Required(ErrorMessage = "This field is required.")]
+		public int? Height { get; set; }
 
-		[Required]
-		[Display(Name = "Gender")]
+		[Required(ErrorMessage = "This field is required.")]
 		[RegularExpression("m|f")]
 		public string Gender { get; set; }
+
+		[Required(ErrorMessage = "This field is required.")]
+		public string Theme { get; set; }
 	}
 }

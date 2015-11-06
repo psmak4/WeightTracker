@@ -19,6 +19,7 @@ namespace Jonesware.WeightTracker.Website.ApiModels.Accounts
 		public int Height { get; set; }
 		public string Gender { get; set; }
 		public DateTime DateCreated { get; set; }
+		public string Theme { get; set; }
 		public IList<string> Roles { get; set; }
 		public IList<Claim> Claims { get; set; }
 	}

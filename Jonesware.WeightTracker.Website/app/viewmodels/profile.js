@@ -4,23 +4,15 @@
 		var submit;
 
 		self.session = session;
-		self.userName = ko.observable();
-		self.email = ko.observable();
-		self.name = ko.observable();
-		self.firstName = ko.observable();
-		self.firstNameEdit = ko.observable().extend({ required: true });
-		self.lastName = ko.observable();
-		self.lastNameEdit = ko.observable().extend({ required: true });
-		self.birthDate = ko.observable();
-		self.birthDateEdit = ko.observable().extend({ required: true });
-		self.height = ko.observable();
-		self.heightEdit = ko.observable().extend({ required: true, number: true });
-		self.heightText = ko.observable();
-		self.gender = ko.observable();
-		self.genderEdit = ko.observable().extend({ required: true });
-		self.genderText = ko.observable();
+		self.firstName = ko.observable().extend({ required: true });
+		self.lastName = ko.observable().extend({ required: true });
+		self.birthDate = ko.observable().extend({ required: true });
+		self.feet = ko.observable().extend({ required: true });
+		self.inches = ko.observable().extend({ required: true });
+		self.gender = ko.observable().extend({ required: true });
 		self.genderOptions = [{ value: 'm', text: 'Male' }, { value: 'f', text: 'Female' }];
-		self.dateJoined = ko.observable();
+		self.theme = ko.observable().extend({ required: true });
+		self.themeOptions = ['Black', 'Blue', 'Green', 'Purple', 'Red', 'Yellow']
 
 		self.gravatar = ko.computed(function () {
 			if (session.isLoggedIn())
@@ -29,28 +21,8 @@
 			return '';
 		});
 
-		self.viewMode = ko.observable('view');
-
 		self.errors = ko.observableArray([]);
-		self.validationErrors = ko.validation.group([self.firstNameEdit, self.lastNameEdit, self.birthDateEdit, self.heightEdit, self.genderEdit]);
-
-		self.editProfile = function () {
-			self.firstNameEdit(self.firstName());
-			self.lastNameEdit(self.lastName());
-			self.birthDateEdit(self.birthDate());
-			self.heightEdit(self.height());
-			self.genderEdit($.grep(self.genderOptions, function (e) { return e.value == self.gender(); })[0]);
-
-			self.viewMode('edit');
-
-			var date = new Date(self.birthDate());
-			$('#DateOfBirth').datepicker('setDate', date);
-		};
-
-		self.cancelEdit = function () {
-			ClearValidationErrors();
-			self.viewMode('view');
-		}
+		self.validationErrors = ko.validation.group([self.firstName, self.lastName, self.birthDate, self.feet, self.inches, self.gender, self.theme]);
 
 		self.updateProfile = function () {
 			if (self.validationErrors().length > 0) {
@@ -65,11 +37,12 @@
 				method: 'POST',
 				url: session.baseUrl + '/api/accounts/user/me',
 				data: {
-					FirstName: self.firstNameEdit(),
-					LastName: self.lastNameEdit(),
-					DateOfBirth: self.birthDateEdit(),
-					Height: self.heightEdit(),
-					Gender: self.genderEdit().value
+					FirstName: self.firstName(),
+					LastName: self.lastName(),
+					DateOfBirth: self.birthDate(),
+					Height: CalculateHeight(self.feet(), self.inches()),
+					Gender: self.gender().value,
+					Theme: self.theme()
 				},
 				headers: {
 					Authorization: 'Bearer ' + session.accessToken()
@@ -78,11 +51,6 @@
 			.done(function (data) {
 				session.user(data);
 				GetProfileFromSession();
-
-				submit.attr('disabled', false);
-				submit.text('Submit');
-
-				self.viewMode('view');
 
 				logger.log({
 					message: 'Profile updated',
@@ -93,6 +61,9 @@
 			})
 			.fail(function (jqXHR, textStatus, errorThrown) {
 				utilities.HandleAjaxError(jqXHR, self.errors);
+				ProcessErrors();
+			})
+			.always(function () {
 				submit.attr('disabled', false);
 				submit.text('Submit');
 			});
@@ -106,40 +77,64 @@
 			$('#DateOfBirth').datepicker({
 				autoclose: true,
 				format: 'm/d/yyyy',
-				orientation: 'top left'
+				orientation: 'bottom left'
 			});
 
 			submit = $('#Submit');
-
-			ClearValidationErrors();
 		};
 
 		function GetProfileFromSession() {
-			self.name(session.user().fullName);
 			self.firstName(session.user().firstName);
-			self.lastName(session.user().lastName);
+			self.lastName(session.user().lastName)
 			self.birthDate(new Date(session.user().dateOfBirth).toLocaleDateString());
-			self.height(session.user().height);
-			self.heightText(CalculateHeight(session.user().height));
-			self.gender(session.user().gender);
-			self.genderText(session.user().gender === 'm' ? 'Male' : 'Female');
+			CalculateFromHeight(session.user().height);
+			self.gender($.grep(self.genderOptions, function (e) { return e.value == session.user().gender; })[0]);
+			self.theme(session.user().theme.replace(/^./, session.user().theme[0].toUpperCase()));
 		}
 
-		function CalculateHeight(height) {
-			var feet, inches;
-
-			feet = Math.floor(height / 12);
-			inches = height % 12;
-
-			return feet + '\' ' + inches + '"';
+		function CalculateFromHeight(height) {
+			self.feet(Math.floor(height / 12));
+			self.inches(height % 12);
 		}
 
-		function ClearValidationErrors() {
-			self.firstNameEdit.clearError();
-			self.lastNameEdit.clearError();
-			self.birthDateEdit.clearError();
-			self.heightEdit.clearError();
-			self.genderEdit.clearError();
+		function CalculateHeight(feet, inches) {
+			var height = (+feet * 12) + +inches;
+			if (isNaN(height))
+				height = '';
+			if (height === 0)
+				height = '';
+
+			return height;
+		}
+
+		function ProcessErrors() {
+			var observable;
+			var errorMessage;
+			$.each(self.errors(), function (key, value) {
+				observable = value.key.split('.')[1];
+				errorMessage = String(value.value);
+				switch (observable) {
+					case 'FirstName':
+						self.firstName.setError(errorMessage);
+						break;
+					case 'LastName':
+						self.lastName.setError(errorMessage);
+						break;
+					case 'DateOfBirth':
+						self.dateOfBirth.setError(errorMessage);
+						break;
+					case 'Height':
+						self.feet.setError(errorMessage);
+						break;
+					case 'Gender':
+						self.gender.setError(errorMessage);
+						break;
+					case 'Theme':
+						self.theme.setError(errorMessage);
+						break;
+				}
+			});
+			self.validationErrors.showAllMessages();
 		}
 
 		return self;

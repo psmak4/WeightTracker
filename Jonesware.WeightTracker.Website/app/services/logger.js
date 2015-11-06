@@ -11,10 +11,10 @@
 
 	function init() {
 		toastr.options.closeButton = true;
-		toastr.options.positionClass = 'toast-bottom-full-width';
+		toastr.options.positionClass = 'toast-bottom-right';
 		toastr.options.backgroundpositionClass = 'toast-bottom-full-width';
 		toastr.options.fadeOut = 1000;
-		toastr.options.progressBar = true;
+		toastr.options.progressBar = false;
 	}
 
 	init();

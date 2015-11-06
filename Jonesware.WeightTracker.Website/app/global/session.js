@@ -7,6 +7,62 @@
 		self.isLoggedIn = ko.observable(false);
 		self.baseUrl = 'http://localhost:50347';
 
+		self.siteTheme = ko.computed(function () {
+			var theme = 'skin-blue';
+			if (self.isLoggedIn()) {
+				switch (self.user().theme.toLowerCase()) {
+					case 'blue':
+						theme = 'skin-blue';
+						break;
+					case 'yellow':
+						theme = 'skin-yellow';
+						break;
+					case 'green':
+						theme = 'skin-green';
+						break;
+					case 'purple':
+						theme = 'skin-purple';
+						break;
+					case 'red':
+						theme = 'skin-red';
+						break;
+					case 'black':
+						theme = 'skin-black';
+						break;
+				}
+			}
+
+			return theme;
+		}, this);
+
+		self.buttonTheme = ko.computed(function () {
+			var theme = 'bg-blue';
+			if (self.isLoggedIn()) {
+				switch (self.user().theme.toLowerCase()) {
+					case 'blue':
+						theme = 'bg-blue';
+						break;
+					case 'yellow':
+						theme = 'bg-yellow';
+						break;
+					case 'green':
+						theme = 'bg-green';
+						break;
+					case 'purple':
+						theme = 'bg-purple';
+						break;
+					case 'red':
+						theme = 'bg-red';
+						break;
+					case 'black':
+						theme = 'bg-black';
+						break;
+				}
+			}
+
+			return theme;
+		}, this);
+
 		self.clear = function () {
 			self.isLoggedIn(false);
 			self.user(null);

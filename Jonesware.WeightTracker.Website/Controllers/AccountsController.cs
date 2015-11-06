@@ -2,14 +2,12 @@
 using Jonesware.WeightTracker.Website.BindingModels.Accounts;
 using Jonesware.WeightTracker.Website.Identity;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.Security;
 
 namespace Jonesware.WeightTracker.Website.Controllers
 {
@@ -66,9 +64,7 @@ namespace Jonesware.WeightTracker.Website.Controllers
 		public async Task<IHttpActionResult> CreateUser(CreateUserBindingModel createUserModel)
 		{
 			if (!ModelState.IsValid)
-			{
 				return BadRequest(ModelState);
-			}
 
 			var user = new ApplicationUser()
 			{
@@ -76,10 +72,11 @@ namespace Jonesware.WeightTracker.Website.Controllers
 				Email = createUserModel.Email,
 				FirstName = createUserModel.FirstName,
 				LastName = createUserModel.LastName,
-				DateOfBirth = createUserModel.DateOfBirth,
-				Height = createUserModel.Height,
+				DateOfBirth = createUserModel.DateOfBirth.Value,
+				Height = createUserModel.Height.Value,
 				Gender = createUserModel.Gender,
-				DateCreated = DateTime.Now.Date
+				DateCreated = DateTime.Now.Date,
+				Theme = createUserModel.Theme
 			};
 
 			var addUserResult = await AppUserManager.CreateAsync(user, createUserModel.Password);
@@ -113,9 +110,10 @@ namespace Jonesware.WeightTracker.Website.Controllers
 
 			user.FirstName = updateUserModel.FirstName;
 			user.LastName = updateUserModel.LastName;
-			user.DateOfBirth = updateUserModel.DateOfBirth;
-			user.Height = updateUserModel.Height;
+			user.DateOfBirth = updateUserModel.DateOfBirth.Value;
+			user.Height = updateUserModel.Height.Value;
 			user.Gender = updateUserModel.Gender;
+			user.Theme = updateUserModel.Theme;
 
 			IdentityResult updateUserResult = await AppUserManager.UpdateAsync(user);
 
@@ -251,6 +249,7 @@ namespace Jonesware.WeightTracker.Website.Controllers
 				Height = user.Height,
 				Gender = user.Gender,
 				DateCreated = user.DateCreated,
+				Theme = user.Theme,
 				Roles = this.AppUserManager.GetRolesAsync(user.Id).Result,
 				Claims = this.AppUserManager.GetClaimsAsync(user.Id).Result
 			};

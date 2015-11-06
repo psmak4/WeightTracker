@@ -1,35 +1,48 @@
-﻿<section class="form-container" style="background-image: url(/images/photo-1422226256160-9b266e308ea6.jpg);">
+﻿<div class="content-wrapper">
 	<div class="container">
-		<div class="form">
-			<div class="form-content">
-				<form data-bind="submit: login">
-					<ul class="list-unstyled text-danger" data-bind="visible: errors().length > 0, foreach: errors">
-						<li data-bind="text: value"></li>
-					</ul>
+		<section class="content">
+			<div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+					<form class="form-horizontal app-form" data-bind="submit: login">
+						<div class="box box-default box-solid">
+							<div class="box-header with-border">
+								<div class="box-title">Login</div>
+							</div>
 
-					<div class="h3">Login</div>
+							<div class="box-body">
+								<ul class="list-unstyled text-danger" data-bind="visible: errors().length > 0, foreach: errors">
+									<li data-bind="text: value"></li>
+								</ul>
 
-					<fieldset class="well">
-						<div class="form-group">
-							<label for="Username" class="sr-only">Username</label>
-							<input type="text" class="form-control" placeholder="Username" id="Username" data-bind="value: username" />
+								<fieldset>
+									<div class="form-group form-group-lg">
+										<label for="Username" class="col-sm-3 control-label">Username:</label>
+										<div class="col-sm-9">
+											<input type="text" class="form-control" placeholder="Username" id="Username" data-bind="value: username" />
+										</div>
+									</div>
+
+									<div class="form-group form-group-lg">
+										<label for="Password" class="col-sm-3 control-label">Password:</label>
+										<div class="col-sm-9">
+											<input type="password" class="form-control" placeholder="Password" id="Password" data-bind="value: password" />
+										</div>
+									</div>
+								</fieldset>
+							</div>
+
+							<div class="box-footer">
+								<button type="submit" class="btn btn-flat btn-primary pull-right" id="Submit">Submit</button>
+								<small>
+									<a href="/register">Need to create an account?</a>
+									<br />
+									<a href="/forgotpassword">Forgot your password?</a>
+								</small>
+							</div>
 						</div>
-
-						<div class="form-group">
-							<label for="Password" class="sr-only">Password</label>
-							<input type="password" class="form-control" placeholder="Password" id="Password" data-bind="value: password" />
-						</div>
-					</fieldset>
-
-					<button type="submit" class="btn btn-primary btn-lg btn-block" id="Submit">Submit</button>
-				</form>
+					</form>
+				</div>
 			</div>
-
-			<div class="form-footer">
-				<a href="/register">Need to create an account?</a>
-				<br />
-				<a href="/forgotpassword">Forgot your password?</a>
-			</div>
-		</div>
+		</section>
 	</div>
-</section>
+</div>

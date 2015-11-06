@@ -1,94 +1,129 @@
 ﻿<div class="content-wrapper">
 	<div class="container">
-		<div class="page-header"><h1>Profile</h1></div>
+		<section class="content-header"><h1>Profile</h1></section>
 
-		<div class="row">
-			<div class="col-sm-4">
-				<div class="box box-primary">
-					<div class="box-body">
-						<img class="profile-user-img img-responsive img-circle" alt="User profile picture" data-bind="attr:{ src: gravatar }">
-
-						<h3 class="profile-username text-center" data-bind="text: session.user().fullName"></h3>
-
-						<p class="text-muted text-center" data-bind="text: session.user().userName"></p>
-
-						<ul class="list-group list-group-unbordered">
-							<li class="list-group-item">
-								<b>Date Joined</b> <span class="pull-right text-primary" data-bind="text: new Date(session.user().dateCreated).toLocaleDateString()"></span>
-							</li>
-						</ul>
+		<section class="content">
+			<div class="row">
+				<div class="col-lg-4 col-sm-5">
+					<div class="box box-default box-solid">
+						<div class="box-body">
+							<img class="profile-user-img img-responsive img-circle" alt="User profile picture" data-bind="attr:{ src: gravatar }">
+							<h3 class="profile-username text-center" data-bind="text: session.user().fullName"></h3>
+							<ul class="list-group list-group-unbordered">
+								<li class="list-group-item"><small><strong>Username:</strong></small><span class="pull-right text-primary" data-bind="text: session.user().userName"></span></li>
+								<li class="list-group-item"><small><strong>Email:</strong></small><span class="pull-right text-primary" data-bind="text: session.user().email"></span></li>
+								<li class="list-group-item"><small><strong>Date Joined:</strong></small><span class="pull-right text-primary" data-bind="text: new Date(session.user().dateCreated).toLocaleDateString()"></span></li>
+							</ul>
+						</div>
 					</div>
 				</div>
-			</div>
-			
-			<div class="col-sm-8">
-				<div class="box box-primary">
-					<div class="box-body">
-						<form class="form-horizontal" data-bind="submit: updateProfile">
-							<div class="form-group">
-								<label class="col-sm-2 control-label">Username</label>
-								<div class="col-sm-5">
-									<p class="form-control-static" data-bind="text: session.user().userName"></p>
-								</div>
+
+				<div class="col-lg-6 col-sm-7">
+					<form class="form-horizontal" data-bind="submit: updateProfile">
+						<div class="box box-default box-solid">
+							<div class="box-header with-border">
+								<div class="box-title">Personal Info</div>
 							</div>
 
-							<div class="form-group">
-								<label class="col-sm-2 control-label">Email</label>
-								<div class="col-sm-5">
-									<p class="form-control-static" data-bind="text: session.user().email"></p>
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label class="col-sm-2 control-label">Name</label>
-								<div class="col-sm-5">
-									<p class="form-control-static" data-bind="text: session.user().fullName, visible: viewMode() === 'view'"></p>
-									<div class="row" data-bind="visible: viewMode() === 'edit'">
-										<div class="col-sm-6">
-											<input type="text" class="form-control" placeholder="First Name" id="FirstName" data-bind="value: firstNameEdit" />
-										</div>
-										<div class="col-sm-6">
-											<input type="text" class="form-control" placeholder="Last Name" id="LastName" data-bind="value: lastNameEdit" />
+							<div class="box-body">
+								<fieldset>
+									<div class="form-group form-group-lg">
+										<label class="col-sm-3 control-label">Name:</label>
+										<div class="col-sm-9">
+											<div class="row">
+												<div class="col-xs-6">
+													<input type="text" class="form-control" placeholder="First Name" id="FirstName" data-bind="value: firstName" />
+												</div>
+												<div class="col-xs-6">
+													<input type="text" class="form-control" placeholder="Last Name" id="LastName" data-bind="value: lastName" />
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
+
+									<div class="form-group form-group-lg">
+										<label class="col-sm-3 control-label">Birthdate:</label>
+										<div class="col-sm-9">
+											<div class="input-group">
+												<input type="text" class="form-control" placeholder="Birthdate" id="DateOfBirth" data-bind="value: birthDate" />
+												<div class="input-group-addon"><span class="fa fa-fw fa-calendar"></span></div>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group form-group-lg">
+										<label class="col-sm-3 control-label">Height:</label>
+										<div class="col-sm-9">
+											<div class="row">
+												<div class="col-xs-6">
+													<div class="input-group">
+														<input type="number" class="form-control" placeholder="Feet" id="Feet" min="4" max="8" step="1" data-bind="value: feet" />
+														<div class="input-group-addon"><span class="fa-fw">ft.</span></div>
+													</div>
+												</div>
+												<div class="col-xs-6">
+													<div class="input-group">
+														<input type="number" class="form-control" placeholder="Inches" id="Inches" min="0" max="11" step="1" data-bind="value: inches" />
+														<div class="input-group-addon"><span class="fa-fw">in.</span></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group form-group-lg">
+										<label class="col-sm-3 control-label">Gender:</label>
+										<div class="col-sm-9">
+											<select class="form-control" data-bind="options: genderOptions, optionsText: 'text', value: gender"></select>
+										</div>
+									</div>
+								</fieldset>
 							</div>
 
-							<div class="form-group">
-								<label class="col-sm-2 control-label">Birthdate</label>
-								<div class="col-sm-5">
-									<p class="form-control-static" data-bind="text: new Date(session.user().dateOfBirth).toLocaleDateString(), visible: viewMode() === 'view'"></p>
-									<input type="text" class="form-control" placeholder="Birthdate" id="DateOfBirth" data-bind="value: birthDateEdit, visible: viewMode() === 'edit'" />
-								</div>
+							<div class="box-header with-border">
+								<div class="box-title">Site Preferences</div>
 							</div>
 
-							<div class="form-group">
-								<label class="col-sm-2 control-label">Height</label>
-								<div class="col-sm-5">
-									<p class="form-control-static" data-bind="text: heightText, visible: viewMode() === 'view'"></p>
-									<input type="number" class="form-control" placeholder="Height (inches)" id="Height" min="0" max="100" step="1" data-bind="value: heightEdit, visible: viewMode() === 'edit'" />
-								</div>
+							<div class="box-body">
+								<fieldset>
+									<div class="form-group form-group-lg">
+										<label class="col-sm-3 control-label">Theme:</label>
+										<div class="col-sm-9">
+											<select class="form-control" data-bind="options: themeOptions, value: theme"></select>
+										</div>
+									</div>
+								</fieldset>
 							</div>
 
-							<div class="form-group">
-								<label class="col-sm-2 control-label">Gender</label>
-								<div class="col-sm-5">
-									<p class="form-control-static" data-bind="text: genderText, visible: viewMode() === 'view'"></p>
-									<select class="form-control" data-bind="options: genderOptions, optionsText: 'text', value: genderEdit, optionsCaption: 'Gender', visible: viewMode() === 'edit'"></select>
-								</div>
+							<div class="box-footer text-right">
+								<button type="submit" class="btn btn-flat" id="Submit" data-bind="css: session.buttonTheme">Submit</button>
 							</div>
+						</div>
+					</form>
+				</div>
 
-							<div class="form-group">
-								<div class="col-sm-offset-2 col-sm-5">
-									<button type="button" class="btn btn-primary" data-bind="click: editProfile, visible: viewMode() === 'view'">Edit</button>
-									<button type="submit" class="btn btn-primary" id="Submit" data-bind="visible: viewMode() === 'edit'">Submit</button>
-									<button type="button" class="btn btn-default" data-bind="click: cancelEdit, visible: viewMode() === 'edit'">Cancel</button>
-								</div>
-							</div>
-						</form>
-					</div>
+				<div class="col-lg-2 visible-lg">
+					<div class="center-block" style="background-color: #666; color: #fff; height: 250px;">Width: 160px</div>
 				</div>
 			</div>
-		</div>
+
+			<div class="row hidden-lg">
+				<div class="col-sm-4 visible-md">
+					<div class="center-block" style="background-color: #666; color: #fff; height: 250px;">Width: 283px</div>
+				</div>
+				<div class="col-sm-4 visible-md">
+					<div class="center-block" style="background-color: #666; color: #fff; height: 250px;">Width: 283px</div>
+				</div>
+				<div class="col-sm-4 visible-md">
+					<div class="center-block" style="background-color: #666; color: #fff; height: 250px;">Width: 283px</div>
+				</div>
+				<div class="col-md-12 visible-sm">
+					<div class="center-block" style="background-color: #666; color: #fff; height: 250px;">Width: 690px</div>
+				</div>
+				<div class="col-md-12 visible-xs">
+					<div class="center-block" style="background-color: #666; color: #fff; height: 250px;">Width: unknown</div>
+				</div>
+			</div>
+		</section>
 	</div>
 </div>

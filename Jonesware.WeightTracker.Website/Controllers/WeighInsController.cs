@@ -61,7 +61,7 @@ namespace Jonesware.WeightTracker.Website.Controllers
 			{
 				try
 				{
-					var weighIn = weighInService.CreateWeighIn(User.Identity.GetUserId(), model.Weight, model.DateRecorded);
+					var weighIn = weighInService.CreateWeighIn(User.Identity.GetUserId(), model.Weight.Value, model.DateRecorded.Value);
 
 					Uri locationHeader = new Uri(Url.Link("GetWeighInById", new { id = weighIn.Id }));
 

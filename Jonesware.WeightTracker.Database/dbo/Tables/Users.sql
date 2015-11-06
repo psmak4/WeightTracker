@@ -18,6 +18,7 @@
     [Height]    INT            NULL,
     [Gender]             CHAR (1) NULL,
     [DateCreated]          DATETIME       NULL,
+    [Theme]            NVARCHAR (20) NULL,
     [Discriminator]        NVARCHAR (128) NOT NULL,
     CONSTRAINT [PK_dbo.Users] PRIMARY KEY CLUSTERED ([Id] ASC)
 )

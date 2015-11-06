@@ -4,7 +4,8 @@
 		var submit;
 
 		self.username = ko.observable().extend({ required: true });
-		self.password = ko.observable().extend({ required: true, minLength: 6, maxLength: 100 });
+		self.password = ko.observable().extend({ required: true });
+
 		self.errors = ko.observableArray([]);
 		self.validationErrors = ko.validation.group([self.username, self.password]);
 
@@ -69,6 +70,8 @@
 				utilities.HandleAjaxError(jqXHR, self.errors);
 			});
 		};
+
+		return self;
 	}
 
 	return new viewModel();

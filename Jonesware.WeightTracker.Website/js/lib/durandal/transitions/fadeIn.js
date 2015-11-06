@@ -1,6 +1,6 @@
 ﻿define(['durandal/system', './transitionHelper'], function (system, helper) {
 	var settings = {
-		inAnimation: 'fadeInDown',
+		inAnimation: 'zoomIn',
 		outAnimation: 'zoomOut'
 	},
 		  fadeIn = function (context) {

@@ -5,10 +5,10 @@ namespace Jonesware.WeightTracker.Website.BindingModels.WeighIns
 {
 	public class CreateBindingModel
 	{
-		[Required]
-		public decimal Weight { get; set; }
+		[Required(ErrorMessage = "This field is required.")]
+		public decimal? Weight { get; set; }
 
-		[Required]
-		public DateTime DateRecorded { get; set; }
+		[Required(ErrorMessage = "This field is required.")]
+		public DateTime? DateRecorded { get; set; }
 	}
 }

@@ -3,7 +3,8 @@
 		var self = this;
 		var submit;
 
-		self.email = ko.observable().extend({ required: true, email: true });
+		self.email = ko.observable().extend({ required: true });
+
 		self.errors = ko.observableArray([]);
 		self.validationErrors = ko.validation.group([self.email]);
 

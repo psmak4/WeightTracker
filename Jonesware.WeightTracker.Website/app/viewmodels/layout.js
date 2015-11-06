@@ -5,12 +5,6 @@
 		self.router = router;
 		self.session = session;
 
-		self.fullName = ko.computed(function () {
-			if (session.isLoggedIn())
-				return session.user().fullName;
-
-			return '';
-		});
 		self.gravatar = ko.computed(function () {
 			if (session.isLoggedIn())
 				return 'http://www.gravatar.com/avatar/' + session.user().emailHash + '?s=160&d=identicon';

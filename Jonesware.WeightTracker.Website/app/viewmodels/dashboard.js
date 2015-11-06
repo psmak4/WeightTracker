@@ -4,6 +4,7 @@
 		var submit;
 		var plot = undefined;
 
+		self.session = session;
 		self.weighIns = ko.observableArray();
 		self.bodyFat = ko.observable();
 		self.bmi = ko.observable();
@@ -11,8 +12,8 @@
 		self.canCalculate = ko.observable();
 		self.bodyClass = ko.observable();
 
-		self.newWeighInWeight = ko.observable().extend({ number: true, min: 0, max: 1000, step: 0.1 });
-		self.newWeighInDate = ko.observable().extend({ date: true });
+		self.newWeighInWeight = ko.observable().extend({ required: true });
+		self.newWeighInDate = ko.observable().extend({ required: true });
 
 		self.errors = ko.observableArray([]);
 		self.validationErrors = ko.validation.group([self.newWeighInWeight, self.newWeighInDate]);
@@ -118,11 +119,6 @@
 
 				self.newWeighInWeight(null);
 				self.newWeighInDate(null);
-				self.newWeighInWeight.clearError();
-				self.newWeighInDate.clearError();
-
-				submit.attr('disabled', false);
-				submit.text('Submit');
 
 				logger.log({
 					message: 'Weigh in added',
@@ -133,12 +129,15 @@
 			})
 			.fail(function (jqXHR, textStatus, errorThrown) {
 				utilities.HandleAjaxError(jqXHR, self.errors);
+				ProcessErrors();
+			})
+			.always(function () {
 				submit.attr('disabled', false);
 				submit.text('Submit');
 			});
 		}
 
-		var processData = function (data) {
+		function processData (data) {
 			if (data.length > 0) {
 				var d = [];
 				for (index = 0; index < data.length; index++) {
@@ -192,16 +191,9 @@
 					return markings;
 				}
 
-				$("<div id='tooltip'></div>").css({
-					position: "absolute",
-					display: "none",
-					border: "1px solid #fdd",
-					padding: "2px",
-					"background-color": "#fee",
-					opacity: 0.80
-				}).appendTo("body");
-
 				$('#placeholder').bind('plothover', function (event, pos, item) {
+					var tooltip = $('#tooltip');
+
 					if (item) {
 						var x = item.datapoint[0],
 							y = item.datapoint[1].toFixed(1);
@@ -209,15 +201,40 @@
 						var date = new Date(x);
 						date.setHours(date.getHours() + 6);
 
-						$('#tooltip').html(date.toLocaleDateString() + ": " + y)
-							.css({ top: item.pageY + 5, left: item.pageX + 5 })
-							.fadeIn(200);
+						tooltip.addClass(session.buttonTheme());
+						tooltip.html('<strong>' + y + ' lbs</strong><br /><small>' + date.toLocaleDateString() + '</small>')
+							.css({ top: item.pageY - (tooltip.height() + 30), left: item.pageX - (tooltip.width() / 2) - 8 })
+							.show();
 					} else {
-						$('#tooltip').hide();
+						tooltip.hide();
 					}
 				});
 			}
-		};
+		}
+
+		function ProcessErrors() {
+			var observable;
+			var errorMessage;
+			$.each(self.errors(), function (key, value) {
+				observable = value.key.split('.')[1];
+				errorMessage = String(value.value);
+				switch (observable) {
+					case 'DateRecorded':
+						self.newWeighInDate.setError(errorMessage);
+						break;
+					case 'Weight':
+						self.newWeighInWeight.setError(errorMessage);
+						break;
+				}
+			});
+			self.validationErrors.showAllMessages();
+		}
+
+		function ClearErrors() {
+			self.newWeighInWeight.clearError();
+			self.newWeighInDate.clearError();
+			self.errors.removeAll();
+		}
 
 		self.activate = function () {
 		};
@@ -234,7 +251,7 @@
 
 			submit = $('#Submit');
 
-			self.bodyClass(session.user().gender === 'm' ? 'fa fw fa-male' : 'fa fw fa-female');
+			self.bodyClass(session.user().gender === 'm' ? 'fa fa-fw fa-male' : 'fa fa-fw fa-female');
 		}
 	};
 
