@@ -148,5 +148,5 @@
 		return self;
 	}
 
-	return new viewModel();
+	return viewModel;
 });

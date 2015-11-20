@@ -21,7 +21,7 @@ namespace Jonesware.WeightTracker.Website.Identity
 				EnableSsl = true,
 			};
 
-			var from = new MailAddress("no-reply@mybabydaily.com", "My Baby Daily");
+			var from = new MailAddress("no-reply@weighttracker.net", "Weight Tracker");
 			var to = new MailAddress(message.Destination);
 
 			var mail = new MailMessage(from, to)

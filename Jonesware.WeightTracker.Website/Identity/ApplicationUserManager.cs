@@ -34,6 +34,7 @@ namespace Jonesware.WeightTracker.Website.Identity
 			};
 
 			appUserManager.EmailService = new SendGridEmailService();
+			//appUserManager.EmailService = new MailtrapEmailService();
 			appUserManager.SmsService = new SmsService();
 
 			var dataProtectionProvider = options.DataProtectionProvider;

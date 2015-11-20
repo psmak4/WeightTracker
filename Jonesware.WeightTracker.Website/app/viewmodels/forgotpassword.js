@@ -1,4 +1,4 @@
-﻿define(['jquery', 'knockout', 'settings', 'plugins/router'], function ($, ko, settings, router) {
+﻿define(['jquery', 'knockout', 'session', 'plugins/router'], function ($, ko, session, router) {
 	var viewModel = function () {
 		var self = this;
 		var submit;
@@ -40,7 +40,9 @@
 				submit.text('Submit');
 			});
 		};
+
+		return self;
 	}
 
-	return new viewModel();
+	return viewModel;
 });

@@ -7,12 +7,13 @@
 				<div class="col-lg-4 col-sm-5">
 					<div class="box box-default box-solid">
 						<div class="box-body">
-							<img class="profile-user-img img-responsive img-circle" alt="User profile picture" data-bind="attr:{ src: gravatar }">
-							<h3 class="profile-username text-center" data-bind="text: session.user().fullName"></h3>
+							<img class="profile-user-img img-responsive img-circle" alt="User profile picture" data-bind="attr:{ src: session.gravatar }">
+							<h3 class="profile-username text-center" data-bind="text: fullName"></h3>
 							<ul class="list-group list-group-unbordered">
-								<li class="list-group-item"><small><strong>Username:</strong></small><span class="pull-right text-primary" data-bind="text: session.user().userName"></span></li>
-								<li class="list-group-item"><small><strong>Email:</strong></small><span class="pull-right text-primary" data-bind="text: session.user().email"></span></li>
-								<li class="list-group-item"><small><strong>Date Joined:</strong></small><span class="pull-right text-primary" data-bind="text: new Date(session.user().dateCreated).toLocaleDateString()"></span></li>
+								<li class="list-group-item"><strong>Username:</strong><span class="pull-right text-primary" data-bind="text: userName"></span></li>
+								<li class="list-group-item"><strong>Email:</strong><span class="pull-right text-primary" data-bind="text: email"></span></li>
+								<li class="list-group-item"><strong>Date Joined:</strong><span class="pull-right text-primary" data-bind="text: new Date(dateCreated).toLocaleDateString()"></span></li>
+								<li class="list-group-item"><strong>Profile Image:</strong><a href="http://gravatar.com" target="_blank" class="pull-right text-primary">Update Gravatar</a></li>
 							</ul>
 						</div>
 					</div>
@@ -95,8 +96,8 @@
 								</fieldset>
 							</div>
 
-							<div class="box-footer text-right">
-								<button type="submit" class="btn btn-flat" id="Submit" data-bind="css: session.buttonTheme">Submit</button>
+							<div class="box-footer">
+								<button type="submit" class="btn btn-lg btn-flat pull-right" id="Submit" data-bind="css: session.buttonTheme">Submit</button>
 							</div>
 						</div>
 					</form>

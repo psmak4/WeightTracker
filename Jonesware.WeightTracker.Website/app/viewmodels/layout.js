@@ -5,9 +5,12 @@
 		self.router = router;
 		self.session = session;
 
-		self.gravatar = ko.computed(function () {
+		self.fullName = ko.computed(function () {
+			return session.isLoggedIn() ? session.user().fullName : '';
+		});
+		self.dateJoined = ko.computed(function () {
 			if (session.isLoggedIn())
-				return 'http://www.gravatar.com/avatar/' + session.user().emailHash + '?s=160&d=identicon';
+				return session.user().dateCreated;
 
 			return '';
 		});
@@ -66,7 +69,7 @@
 
 		function setupRouter() {
 			router.map([
-				{ route: '', title: 'Index', moduleId: 'viewmodels/index', nav: false },
+				{ route: '', title: 'Home', moduleId: 'viewmodels/index', nav: false },
 				{ route: 'login', title: 'Login', moduleId: 'viewmodels/login', nav: true, displayUnauthenticated: true, displayAuthenticated: false },
 				{ route: 'register', title: 'Register', moduleId: 'viewmodels/register', nav: true, displayUnauthenticated: true, displayAuthenticated: false },
 				{ route: 'forgotpassword', title: 'Forgot Password', moduleId: 'viewmodels/forgotpassword', nav: false },
@@ -76,7 +79,6 @@
 			]).buildNavigationModel();
 
 			router.guardRoute = function (routeInfo, params, instance) {
-				//console.log(params.config.loginRequired, params.config);
 				if (typeof (params.config.requiredRoles) === 'undefined')
 					return true;
 

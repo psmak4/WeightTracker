@@ -120,10 +120,6 @@
       <HintPath>..\packages\Sendgrid.6.1.0\lib\SendGridMail.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Swashbuckle.Core.5.2.1\lib\net40\Swashbuckle.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.IdentityModel" />
     <Reference Include="System.IdentityModel.Tokens.Jwt, Version=4.0.20622.1351, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.4.0.2.206221351\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
@@ -155,8 +151,8 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml.Linq" />
@@ -171,11 +167,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Twilio.Api, Version=3.4.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Twilio.4.0.51\lib\3.5\Twilio.Api.dll</HintPath>
+      <HintPath>..\packages\Twilio.4.4.0\lib\3.5\Twilio.Api.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <HintPath>..\packages\WebActivatorEx.2.0.6\lib\net40\WebActivatorEx.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -295,6 +291,8 @@
     <Content Include="Less\_carousel.less" />
     <Content Include="Less\_scrollbars.less" />
     <Content Include="Less\_splash.less" />
+    <Content Include="Less\_noWeighIns.less" />
+    <Content Include="Less\_forms.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -313,7 +311,6 @@
     <Compile Include="ApiModels\Roles\RoleApiModel.cs" />
     <Compile Include="ApiModels\WeighIns\StatsApiModel.cs" />
     <Compile Include="ApiModels\WeighIns\WeighInApiModel.cs" />
-    <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="BindingModels\Accounts\ChangePasswordBindingModel.cs" />
     <Compile Include="BindingModels\Accounts\CreateUserBindingModel.cs" />
     <Compile Include="BindingModels\Accounts\ForgotPasswordBindingModel.cs" />

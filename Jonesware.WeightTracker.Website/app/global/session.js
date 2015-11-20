@@ -7,9 +7,16 @@
 		self.isLoggedIn = ko.observable(false);
 		self.baseUrl = 'http://localhost:50347';
 
+		self.gravatar = ko.computed(function () {
+			if (self.isLoggedIn())
+				return 'http://www.gravatar.com/avatar/' + self.user().emailHash + '?s=160&d=mm';
+
+			return '';
+		});
+
 		self.siteTheme = ko.computed(function () {
 			var theme = 'skin-blue';
-			if (self.isLoggedIn()) {
+			if (self.isLoggedIn() && self.user().theme) {
 				switch (self.user().theme.toLowerCase()) {
 					case 'blue':
 						theme = 'skin-blue';
@@ -37,7 +44,7 @@
 
 		self.buttonTheme = ko.computed(function () {
 			var theme = 'bg-blue';
-			if (self.isLoggedIn()) {
+			if (self.isLoggedIn() && self.user().theme) {
 				switch (self.user().theme.toLowerCase()) {
 					case 'blue':
 						theme = 'bg-blue';

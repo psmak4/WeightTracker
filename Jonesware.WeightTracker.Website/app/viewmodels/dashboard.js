@@ -12,11 +12,14 @@
 		self.canCalculate = ko.observable();
 		self.bodyClass = ko.observable();
 
-		self.newWeighInWeight = ko.observable().extend({ required: true });
-		self.newWeighInDate = ko.observable().extend({ required: true });
+		self.firstName = ko.computed(function () {
+			return session.isLoggedIn() ? session.user().firstName : '';
+		});
+
+		self.newWeighInWeight = ko.observable();
+		self.newWeighInDate = ko.observable();
 
 		self.errors = ko.observableArray([]);
-		self.validationErrors = ko.validation.group([self.newWeighInWeight, self.newWeighInDate]);
 
 		self.weighInsByDate = ko.dependentObservable(function () {
 			return self.weighIns.slice().sort(function (a, b ) {
@@ -94,11 +97,6 @@
 		};
 
 		self.createWeighIn = function () {
-			if (self.validationErrors().length > 0) {
-				self.validationErrors.showAllMessages();
-				return;
-			}
-
 			submit.text('Loading...');
 			submit.attr('disabled', true);
 
@@ -116,9 +114,11 @@
 			.done(function (data) {
 				self.weighIns.push(data);
 				processData(self.weighInsByDateAsc());
+				self.getStats();
 
 				self.newWeighInWeight(null);
 				self.newWeighInDate(null);
+				ClearErrors();
 
 				logger.log({
 					message: 'Weigh in added',
@@ -231,8 +231,6 @@
 		}
 
 		function ClearErrors() {
-			self.newWeighInWeight.clearError();
-			self.newWeighInDate.clearError();
 			self.errors.removeAll();
 		}
 
@@ -253,7 +251,9 @@
 
 			self.bodyClass(session.user().gender === 'm' ? 'fa fa-fw fa-male' : 'fa fa-fw fa-female');
 		}
+
+		return self;
 	};
 
-	return new viewModel();
+	return viewModel;
 });

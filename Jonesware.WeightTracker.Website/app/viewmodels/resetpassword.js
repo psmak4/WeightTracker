@@ -1,4 +1,4 @@
-﻿define(['jquery', 'knockout', 'utilities'], function ($, ko, utilities) {
+﻿define(['jquery', 'knockout', 'utilities', 'session'], function ($, ko, utilities, session) {
 	var viewModel = function () {
 		var self = this;
 		var submit;
@@ -22,8 +22,8 @@
 			submit.text('Loading...');
 			submit.attr('disabled', true);
 
-			self.error('');
 			self.errors.removeAll();
+
 			$.ajax({
 				method: 'POST',
 				url: session.baseUrl + '/api/accounts/resetpassword',
@@ -65,5 +65,5 @@
 		return self;
 	};
 
-	return new viewModel();
+	return viewModel;
 });

@@ -14,11 +14,17 @@
 		self.theme = ko.observable().extend({ required: true });
 		self.themeOptions = ['Black', 'Blue', 'Green', 'Purple', 'Red', 'Yellow']
 
-		self.gravatar = ko.computed(function () {
-			if (session.isLoggedIn())
-				return 'http://www.gravatar.com/avatar/' + session.user().emailHash + '?s=160&d=identicon';
-
-			return '';
+		self.fullName = ko.computed(function () {
+			return session.isLoggedIn() ? session.user().fullName : '';
+		});
+		self.userName = ko.computed(function () {
+			return session.isLoggedIn() ? session.user().userName : '';
+		});
+		self.email = ko.computed(function () {
+			return session.isLoggedIn() ? session.user().email : '';
+		});
+		self.dateCreated = ko.computed(function () {
+			return session.isLoggedIn() ? session.user().dateCreated : '';
 		});
 
 		self.errors = ko.observableArray([]);
@@ -89,7 +95,7 @@
 			self.birthDate(new Date(session.user().dateOfBirth).toLocaleDateString());
 			CalculateFromHeight(session.user().height);
 			self.gender($.grep(self.genderOptions, function (e) { return e.value == session.user().gender; })[0]);
-			self.theme(session.user().theme.replace(/^./, session.user().theme[0].toUpperCase()));
+			self.theme(session.user().theme ? session.user().theme.replace(/^./, session.user().theme[0].toUpperCase()) : 'Blue');
 		}
 
 		function CalculateFromHeight(height) {
@@ -140,5 +146,5 @@
 		return self;
 	};
 
-	return new viewModel();
+	return viewModel;
 });

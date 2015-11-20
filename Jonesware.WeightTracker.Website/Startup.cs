@@ -21,8 +21,6 @@ namespace Jonesware.WeightTracker.Website
 		{
 			var config = new HttpConfiguration();
 
-			SwaggerConfig.Register(config);
-
 			ConfigureOAuthTokenGeneration(app);
 
 			ConfigureOAuthTokenConsumption(app);

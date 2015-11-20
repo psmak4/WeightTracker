@@ -15,7 +15,7 @@ namespace Jonesware.WeightTracker.Website.Identity
 			var myMessage = new SendGridMessage();
 
 			// this defines email and name of the sender
-			myMessage.From = new MailAddress("no-reply@mybabydaily.com", "My Baby Daily");
+			myMessage.From = new MailAddress("no-reply@weighttracker.net", "Weight Tracker");
 
 			// set where we are sending the email
 			myMessage.AddTo(message.Destination);
