@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web;
+using System.Web.Http;
 
 namespace Jonesware.WeightTracker.Website
 {
@@ -7,6 +8,7 @@ namespace Jonesware.WeightTracker.Website
 	{
 		protected void Application_Start(object sender, EventArgs e)
 		{
+			GlobalConfiguration.Configuration.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
 		}
 	}
 }
