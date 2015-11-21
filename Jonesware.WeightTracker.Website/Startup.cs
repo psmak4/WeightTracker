@@ -46,7 +46,7 @@ namespace Jonesware.WeightTracker.Website
 				TokenEndpointPath = new PathString("/oauth/token"),
 				AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
 				Provider = new CustomOAuthProvider(),
-				AccessTokenFormat = new CustomJwtFormat("http://localhost:50347")
+				AccessTokenFormat = new CustomJwtFormat("Weight Tracker")
 			};
 
 			// OAuth 2.0 Bearer Access Token Generation
@@ -65,7 +65,7 @@ namespace Jonesware.WeightTracker.Website
 
 		private void ConfigureOAuthTokenConsumption(IAppBuilder app)
 		{
-			var issuer = "http://localhost:50347";
+			var issuer = "Weight Tracker";
 			string audienceId = ConfigurationManager.AppSettings["as:AudienceId"];
 			byte[] audienceSecret = TextEncodings.Base64Url.Decode(ConfigurationManager.AppSettings["as:AudienceSecret"]);
 
