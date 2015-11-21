@@ -5,7 +5,8 @@
 		self.user = ko.observable();
 		self.accessToken = ko.observable();
 		self.isLoggedIn = ko.observable(false);
-		self.baseUrl = 'http://localhost:50347';
+		//self.baseUrl = 'http://localhost:50347';
+		self.baseUrl = '';
 
 		self.gravatar = ko.computed(function () {
 			if (self.isLoggedIn())

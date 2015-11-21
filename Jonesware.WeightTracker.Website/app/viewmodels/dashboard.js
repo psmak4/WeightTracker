@@ -61,12 +61,7 @@
 				}
 			})
 			.fail(function (jqXHR, textStatus, errorThrown) {
-				logger.log({
-					message: jqXHR.responseJSON.error_description,
-					data: jqXHR.responseJSON.error_description,
-					showToast: true,
-					type: 'error'
-				});
+				utilities.HandleAjaxError(jqXHR, self.errors);
 			});
 		};
 
