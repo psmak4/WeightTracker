@@ -54,10 +54,6 @@
     <Compile Include="WeighInService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Jonesware.WeightTracker.Core\Jonesware.WeightTracker.Core.csproj">
-      <Project>{6b296e15-a13d-4196-b38b-e5c00c2ced78}</Project>
-      <Name>Jonesware.WeightTracker.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Jonesware.WeightTracker.Data\Jonesware.WeightTracker.Data.csproj">
       <Project>{0c3e083a-ef6f-4da2-88d3-c18ac80b4724}</Project>
       <Name>Jonesware.WeightTracker.Data</Name>
