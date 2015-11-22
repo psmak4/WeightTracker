@@ -46,20 +46,10 @@ namespace Jonesware.WeightTracker.Website.Controllers
 		[Route("getweighins")]
 		public IHttpActionResult GetWeighIns()
 		{
-			try
-			{
-				var weighIns = weighInService.GetUserWeighIns(User.Identity.GetUserId());
-				var model = CreateWeighInApiModels(weighIns);
+			var weighIns = weighInService.GetUserWeighIns(User.Identity.GetUserId());
+			var model = CreateWeighInApiModels(weighIns);
 
-				return Ok(model);
-			}
-			catch (Exception ex)
-			{
-				if (ex.InnerException != null)
-					return BadRequest(ex.InnerException.Message);
-
-				return BadRequest(ex.Message);
-			}
+			return Ok(model);
         }
 
 		[HttpPost]
