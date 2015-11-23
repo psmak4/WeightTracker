@@ -1,6 +1,6 @@
 ﻿<div class="wrapper" data-bind="css: session.siteTheme">
 	<header class="main-header">
-		<nav class="navbar navbar-static-top">
+		<nav class="navbar navbar-fixed-top">
 			<div class="container">
 				<div class="navbar-header">
 					<a href="/" class="navbar-brand">Weight Tracker</a>
@@ -12,7 +12,9 @@
 						<a data-bind="attr: { href: hash }, html: title"></a>
 					</li>
 					<!-- /ko -->
-					<li class="dropdown user user-menu" data-bind="visible: session.isLoggedIn">
+					<li><a href="/profile" class="visible-xs">Profile</a></li>
+					<li><a href="#" class="visible-xs" data-bind="click: logout">Logout</a></li>
+					<li class="dropdown user user-menu hidden-xs" data-bind="visible: session.isLoggedIn">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							<img class="user-image" alt="User Image" data-bind="attr:{ src: session.gravatar }">
 							<span data-bind="text: fullName"></span>

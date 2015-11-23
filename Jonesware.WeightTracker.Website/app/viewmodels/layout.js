@@ -53,6 +53,16 @@
 			//		alert('here');
 			//	});
 			//})();
+
+			var prev = 0;
+			var $window = $(window);
+			var nav = $('.navbar-header');
+
+			$window.on('scroll', function () {
+				var scrollTop = $window.scrollTop();
+				nav.toggleClass('shrink', scrollTop > prev);
+				prev = scrollTop;
+			});
 		}
 
 		self.logout = function () {
