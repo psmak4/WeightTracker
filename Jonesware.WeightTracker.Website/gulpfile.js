@@ -223,7 +223,7 @@ gulp.task('fonts', function () {
 });
 
 gulp.task('watch', function () {
-	gulp.watch(['Less/app.less', 'Less/_carousel.less', 'Less/_forms.less', 'Less/_noWeighIns.less', 'Less/_scrollbars.less', 'Less/_splash.less'], ['css-app']);
+	gulp.watch(['Less/**/*.less'], ['css-app']);
 });
 
 gulp.task('default', function () {

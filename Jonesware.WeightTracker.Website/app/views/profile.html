@@ -5,15 +5,15 @@
 		<section class="content">
 			<div class="row">
 				<div class="col-lg-4 col-sm-5">
-					<div class="box box-default box-solid">
+					<div class="box box-solid" data-bind="css: session.boxTheme">
 						<div class="box-body">
 							<img class="profile-user-img img-responsive img-circle" alt="User profile picture" data-bind="attr:{ src: session.gravatar }">
 							<h3 class="profile-username text-center" data-bind="text: fullName"></h3>
 							<ul class="list-group list-group-unbordered">
 								<li class="list-group-item"><strong>Username:</strong><span class="pull-right text-primary" data-bind="text: userName"></span></li>
 								<li class="list-group-item"><strong>Email:</strong><span class="pull-right text-primary" data-bind="text: email"></span></li>
-								<li class="list-group-item"><strong>Date Joined:</strong><span class="pull-right text-primary" data-bind="text: new Date(dateCreated).toLocaleDateString()"></span></li>
-								<li class="list-group-item"><strong>Profile Image:</strong><a href="http://gravatar.com" target="_blank" class="pull-right text-primary">Update Gravatar</a></li>
+								<li class="list-group-item"><strong>Date Joined:</strong><span class="pull-right text-primary" data-bind="text: dateCreated()"></span></li>
+								<li class="list-group-item"><strong>Profile Image:</strong><a href="http://gravatar.com" target="_blank" class="pull-right text-primary">Update Gravatar <span class="fa fa-fw fa-external-link"></span></a></li>
 							</ul>
 						</div>
 					</div>
@@ -21,7 +21,7 @@
 
 				<div class="col-lg-6 col-sm-7">
 					<form class="form-horizontal" data-bind="submit: updateProfile">
-						<div class="box box-default box-solid">
+						<div class="box box-solid" data-bind="css: session.boxTheme">
 							<div class="box-header with-border">
 								<div class="box-title">Personal Info</div>
 							</div>

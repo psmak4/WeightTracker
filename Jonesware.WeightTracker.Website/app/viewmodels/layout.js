@@ -8,11 +8,8 @@
 		self.fullName = ko.computed(function () {
 			return session.isLoggedIn() ? session.user().fullName : '';
 		});
-		self.dateJoined = ko.computed(function () {
-			if (session.isLoggedIn())
-				return session.user().dateCreated;
-
-			return '';
+		self.dateCreated = ko.computed(function () {
+			return session.isLoggedIn() ? new Date(session.user().dateCreated).toLocaleDateString() : '';
 		});
 
 		self.activate = function () {

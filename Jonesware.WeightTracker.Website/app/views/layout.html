@@ -22,7 +22,7 @@
 						<ul class="dropdown-menu">
 							<li class="user-header">
 								<img class="img-circle" alt="User Image" data-bind="attr:{ src: session.gravatar }">
-								<p><span data-bind="text: fullName"></span><small data-bind="text: 'Member since ' + new Date(dateJoined).toLocaleDateString()"></small></p>
+								<p><span data-bind="text: fullName"></span><small data-bind="text: 'Member since ' + dateCreated()"></small></p>
 							</li>
 							<li class="user-footer">
 								<div class="pull-left">

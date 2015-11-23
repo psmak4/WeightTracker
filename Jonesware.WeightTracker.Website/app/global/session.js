@@ -71,6 +71,34 @@
 			return theme;
 		}, this);
 
+		self.boxTheme = ko.computed(function () {
+			var theme = 'box-blue';
+			if (self.isLoggedIn() && self.user().theme) {
+				switch (self.user().theme.toLowerCase()) {
+					case 'blue':
+						theme = 'box-blue';
+						break;
+					case 'yellow':
+						theme = 'box-yellow';
+						break;
+					case 'green':
+						theme = 'box-green';
+						break;
+					case 'purple':
+						theme = 'box-purple';
+						break;
+					case 'red':
+						theme = 'box-red';
+						break;
+					case 'black':
+						theme = 'box-black';
+						break;
+				}
+			}
+
+			return theme;
+		}, this);
+
 		self.clear = function () {
 			self.isLoggedIn(false);
 			self.user(null);
@@ -99,44 +127,8 @@
 			}
 		};
 
-		//self.userName = ko.observable(undefined);
-		//self.email = ko.observable(undefined);
-		//self.isBusy = ko.observable(false);
-		//self.userRoles = ko.observableArray();
-		//self.archiveSessionStorageToLocalStorage = archiveSessionStorageToLocalStorage;
-		//self.isAuthCallback = isAuthCallback;
-		//self.userRemembered = userRemembered;
-		//self.rememberedToken = rememberedToken;
-
 		return self;
 	};
 
 	return new session();
-
-	function isAuthCallback() {
-		return sessionStorage["associatingExternalLogin"] || sessionStorage["externalLogin"];
-	}
-
-	function userRemembered() {
-		return sessionStorage["accessToken"] !== undefined || localStorage["accessToken"] !== undefined;
-	}
-
-	function redirectCallback(redirectToManage) {
-		if (redirectToManage) {
-			router.navigate('#/manage', 'replace');
-		} else {
-			router.navigate('#/', 'replace');
-		}
-	}
-
-	function archiveSessionStorageToLocalStorage() {
-		var backup = {};
-
-		for (var i = 0; i < sessionStorage.length; i++) {
-			backup[sessionStorage.key(i)] = sessionStorage[sessionStorage.key(i)];
-		}
-
-		localStorage["sessionStorageBackup"] = JSON.stringify(backup);
-		sessionStorage.clear();
-	}
 });

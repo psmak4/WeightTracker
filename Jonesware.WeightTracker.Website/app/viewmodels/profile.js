@@ -24,7 +24,7 @@
 			return session.isLoggedIn() ? session.user().email : '';
 		});
 		self.dateCreated = ko.computed(function () {
-			return session.isLoggedIn() ? session.user().dateCreated : '';
+			return session.isLoggedIn() ? new Date(session.user().dateCreated).toLocaleDateString() : '';
 		});
 
 		self.errors = ko.observableArray([]);
