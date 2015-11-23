@@ -47,20 +47,13 @@
 		};
 
 		self.attached = function () {
-			//$(function () {
-			//	$('.nav.navbar-nav a').click(function () {
-			//		$('.collapse').collapse('hide');
-			//		alert('here');
-			//	});
-			//})();
-
 			var prev = 0;
 			var $window = $(window);
 			var nav = $('.navbar-header');
 
 			$window.on('scroll', function () {
 				var scrollTop = $window.scrollTop();
-				nav.toggleClass('shrink', scrollTop > prev);
+				nav.toggleClass('shrink', (scrollTop > nav.height()) && (scrollTop > prev));
 				prev = scrollTop;
 			});
 		}
