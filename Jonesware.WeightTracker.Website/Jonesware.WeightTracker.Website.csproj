@@ -276,6 +276,7 @@
     <Content Include="Less\_noWeighIns.less" />
     <Content Include="Less\_forms.less" />
     <Content Include="Less\_box.less" />
+    <Content Include="Less\_skins.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
