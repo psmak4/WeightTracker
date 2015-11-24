@@ -183,6 +183,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="gulpfile.js" />
     <Content Include="images\a5696ad6-min.jpg" />
+    <Content Include="images\Elegant_Background-1.jpg" />
+    <Content Include="images\Elegant_Background-10.jpg" />
+    <Content Include="images\Elegant_Background-14.jpg" />
+    <Content Include="images\Elegant_Background-16.jpg" />
+    <Content Include="images\Elegant_Background-17.jpg" />
+    <Content Include="images\Elegant_Background-19.jpg" />
     <Content Include="index.html" />
     <Content Include="app\global\session.js" />
     <Content Include="app\main.js" />
