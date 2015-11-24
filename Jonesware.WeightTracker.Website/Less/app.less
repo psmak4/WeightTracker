@@ -43,10 +43,13 @@ body {
 			text-align: center;
 
 			@media (max-width: @grid-float-breakpoint-max) {
-				.transition(all 1.0s ease-in);
+				max-height: 50px;
+				opacity: 1;
+				.transition(all 0.5s linear);
 
 				&.shrink {
-					height: 0;
+					max-height: 0;
+					opacity: 0;
 					overflow: hidden;
 				}
 			}

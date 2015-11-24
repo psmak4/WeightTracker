@@ -12,8 +12,8 @@
 						<a data-bind="attr: { href: hash }, html: title"></a>
 					</li>
 					<!-- /ko -->
-					<li><a href="/profile" class="visible-xs">Profile</a></li>
-					<li><a href="#" class="visible-xs" data-bind="click: logout">Logout</a></li>
+					<li data-bind="visible: session.isLoggedIn"><a href="/profile" class="visible-xs">Profile</a></li>
+					<li data-bind="visible: session.isLoggedIn"><a href="#" class="visible-xs" data-bind="click: logout">Logout</a></li>
 					<li class="dropdown user user-menu hidden-xs" data-bind="visible: session.isLoggedIn">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							<img class="user-image" alt="User Image" data-bind="attr:{ src: session.gravatar }">

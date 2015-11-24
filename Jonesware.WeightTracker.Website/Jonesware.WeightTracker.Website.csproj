@@ -190,8 +190,6 @@
     <Content Include="app\services\utilities.js" />
     <Content Include="app\views\forgotpassword.html" />
     <Content Include="app\viewmodels\forgotpassword.js" />
-    <Content Include="app\views\stats.html" />
-    <Content Include="app\viewmodels\stats.js" />
     <Content Include="app\views\profile.html" />
     <Content Include="app\viewmodels\profile.js" />
     <Content Include="app\views\dashboard.html" />
@@ -208,7 +206,6 @@
     <Content Include="app\viewmodels\resetpassword.js" />
     <Content Include="app\services\logger.js" />
     <Content Include="app\services\security.js" />
-    <Content Include="app\settings.js" />
     <Content Include="js\lib\adminLTE\adminLTE.js" />
     <Content Include="js\lib\bootstrap\bootstrap.js" />
     <Content Include="js\lib\datepicker\datepicker.js" />
