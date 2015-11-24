@@ -20,7 +20,7 @@
 				</div>
 
 				<div class="col-lg-6 col-sm-7">
-					<form class="form-horizontal" data-bind="submit: updateProfile">
+					<form data-bind="submit: updateProfile">
 						<div class="box box-solid" data-bind="css: session.boxTheme">
 							<div class="box-header with-border">
 								<div class="box-title">Personal Info</div>
@@ -29,54 +29,46 @@
 							<div class="box-body">
 								<fieldset>
 									<div class="form-group">
-										<label class="col-sm-3 control-label">Name:</label>
-										<div class="col-sm-9">
-											<div class="row">
-												<div class="col-xs-6">
-													<input type="text" class="form-control" placeholder="First Name" id="FirstName" data-bind="value: firstName" />
+										<label class="control-label">Name:</label>
+										<div class="row">
+											<div class="col-xs-6">
+												<input type="text" class="form-control" placeholder="First Name" id="FirstName" data-bind="value: firstName" />
+											</div>
+											<div class="col-xs-6">
+												<input type="text" class="form-control" placeholder="Last Name" id="LastName" data-bind="value: lastName" />
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label">Birthdate:</label>
+										<div class="input-group">
+											<input type="text" class="form-control" placeholder="Birthdate" id="DateOfBirth" data-bind="value: birthDate" />
+											<div class="input-group-addon"><span class="fa fa-fw fa-calendar"></span></div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label">Height:</label>
+										<div class="row">
+											<div class="col-xs-6">
+												<div class="input-group">
+													<input type="number" class="form-control" placeholder="Feet" id="Feet" min="4" max="8" step="1" data-bind="value: feet" />
+													<div class="input-group-addon"><span class="fa-fw">ft.</span></div>
 												</div>
-												<div class="col-xs-6">
-													<input type="text" class="form-control" placeholder="Last Name" id="LastName" data-bind="value: lastName" />
+											</div>
+											<div class="col-xs-6">
+												<div class="input-group">
+													<input type="number" class="form-control" placeholder="Inches" id="Inches" min="0" max="11" step="1" data-bind="value: inches" />
+													<div class="input-group-addon"><span class="fa-fw">in.</span></div>
 												</div>
 											</div>
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label class="col-sm-3 control-label">Birthdate:</label>
-										<div class="col-sm-9">
-											<div class="input-group">
-												<input type="text" class="form-control" placeholder="Birthdate" id="DateOfBirth" data-bind="value: birthDate" />
-												<div class="input-group-addon"><span class="fa fa-fw fa-calendar"></span></div>
-											</div>
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="col-sm-3 control-label">Height:</label>
-										<div class="col-sm-9">
-											<div class="row">
-												<div class="col-xs-6">
-													<div class="input-group">
-														<input type="number" class="form-control" placeholder="Feet" id="Feet" min="4" max="8" step="1" data-bind="value: feet" />
-														<div class="input-group-addon"><span class="fa-fw">ft.</span></div>
-													</div>
-												</div>
-												<div class="col-xs-6">
-													<div class="input-group">
-														<input type="number" class="form-control" placeholder="Inches" id="Inches" min="0" max="11" step="1" data-bind="value: inches" />
-														<div class="input-group-addon"><span class="fa-fw">in.</span></div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="col-sm-3 control-label">Gender:</label>
-										<div class="col-sm-9">
-											<select class="form-control" data-bind="options: genderOptions, optionsText: 'text', value: gender"></select>
-										</div>
+										<label class="control-label">Gender:</label>
+										<select class="form-control" data-bind="options: genderOptions, optionsText: 'text', value: gender"></select>
 									</div>
 								</fieldset>
 							</div>
@@ -88,16 +80,12 @@
 							<div class="box-body">
 								<fieldset>
 									<div class="form-group">
-										<label class="col-sm-3 control-label">Theme:</label>
-										<div class="col-sm-9">
-											<select class="form-control" data-bind="options: themeOptions, value: theme"></select>
-										</div>
+										<label class="control-label">Theme:</label>
+										<select class="form-control" data-bind="options: themeOptions, value: theme"></select>
 									</div>
 								</fieldset>
-							</div>
 
-							<div class="box-footer">
-								<button type="submit" class="btn btn-flat pull-right" id="Submit" data-bind="css: session.buttonTheme">Submit</button>
+								<button type="submit" class="btn btn-flat" id="Submit" data-bind="css: session.buttonTheme">Submit</button>
 							</div>
 						</div>
 					</form>
