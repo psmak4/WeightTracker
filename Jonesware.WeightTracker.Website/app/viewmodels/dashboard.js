@@ -137,7 +137,6 @@
 				var d = [];
 				for (index = 0; index < data.length; index++) {
 					var date = new Date(data[index].dateRecorded);
-					//date.setHours(date.getHours() - 6);
 					d.push([date.getTime(), data[index].weight])
 				}
 
@@ -194,10 +193,9 @@
 							y = item.datapoint[1].toFixed(1);
 
 						var date = new Date(x);
-						//date.setHours(date.getHours() + 6);
 
 						tooltip.addClass(session.buttonTheme());
-						tooltip.html('<strong>' + y + ' lbs</strong><br /><small>' + date.toLocaleDateString() + '</small>')
+						tooltip.html('<strong>' + y + ' lbs</strong><br /><small>' + date.toDateString() + '</small>')
 							.css({ top: item.pageY - (tooltip.height() + 30), left: item.pageX - (tooltip.width() / 2) - 8 })
 							.show();
 					} else {
