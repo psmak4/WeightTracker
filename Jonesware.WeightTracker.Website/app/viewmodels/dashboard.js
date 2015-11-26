@@ -195,7 +195,7 @@
 						var date = new Date(x);
 
 						tooltip.addClass(session.buttonTheme());
-						tooltip.html('<strong>' + y + ' lbs</strong><br /><small>' + date.toDateString() + '</small>')
+						tooltip.html('<strong>' + y + ' lbs</strong><br /><small>' + (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear() + '</small>')
 							.css({ top: item.pageY - (tooltip.height() + 30), left: item.pageX - (tooltip.width() / 2) - 8 })
 							.show();
 					} else {
