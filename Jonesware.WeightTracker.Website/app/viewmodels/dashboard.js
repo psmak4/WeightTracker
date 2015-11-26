@@ -137,7 +137,7 @@
 				var d = [];
 				for (index = 0; index < data.length; index++) {
 					var date = new Date(data[index].dateRecorded);
-					date.setHours(date.getHours() - 6);
+					//date.setHours(date.getHours() - 6);
 					d.push([date.getTime(), data[index].weight])
 				}
 
