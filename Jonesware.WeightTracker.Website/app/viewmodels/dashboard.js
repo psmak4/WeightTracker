@@ -194,7 +194,7 @@
 							y = item.datapoint[1].toFixed(1);
 
 						var date = new Date(x);
-						date.setHours(date.getHours() + 6);
+						//date.setHours(date.getHours() + 6);
 
 						tooltip.addClass(session.buttonTheme());
 						tooltip.html('<strong>' + y + ' lbs</strong><br /><small>' + date.toLocaleDateString() + '</small>')
