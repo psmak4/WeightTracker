@@ -193,8 +193,8 @@
 							y = item.datapoint[1].toFixed(1);
 
 						var date = new Date(x);
-						console.log('x', x);
-						console.log('date', date);
+						var offset = date.getTimezoneOffset() * 60000;
+						date = new Date(date.getTime() + offset);
 
 						tooltip.addClass(session.buttonTheme());
 						tooltip.html('<strong>' + y + ' lbs</strong><br /><small>' + date.toLocaleDateString() + '</small>')
