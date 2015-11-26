@@ -136,7 +136,7 @@
 			if (data.length > 0) {
 				var d = [];
 				for (index = 0; index < data.length; index++) {
-					var date = new Date(data[index].dateRecorded);
+					var date = new Date(data[index].dateRecorded.split('T')[0]);
 					d.push([date.getTime(), data[index].weight])
 				}
 
