@@ -136,8 +136,8 @@
 			if (data.length > 0) {
 				var d = [];
 				for (index = 0; index < data.length; index++) {
-					var date = new Date(data[index].dateRecorded.split('T')[0]);
-					console.log('date', data[index].dateRecorded.split('T')[0]);
+					var date = new Date(data[index].dateRecorded.split('T')[0] + ' 00:00:00');
+					console.log('date', date);
 					d.push([date.getTime(), data[index].weight])
 				}
 
