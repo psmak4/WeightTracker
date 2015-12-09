@@ -27,10 +27,10 @@ namespace Jonesware.WeightTracker.Website.Identity
 			appUserManager.PasswordValidator = new PasswordValidator
 			{
 				RequiredLength = 6,
-				RequireNonLetterOrDigit = false,
-				RequireDigit = false,
-				RequireLowercase = false,
-				RequireUppercase = false,
+				RequireNonLetterOrDigit = true,
+				RequireDigit = true,
+				RequireLowercase = true,
+				RequireUppercase = true,
 			};
 
 			appUserManager.EmailService = new SendGridEmailService();
