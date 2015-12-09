@@ -140,6 +140,14 @@
 					case 'Gender':
 						self.gender.setError(errorMessage);
 						break;
+					default:
+						if (errorMessage.indexOf('Password') > -1)
+							self.password.setError(errorMessage);
+						if (errorMessage.indexOf('Name') > -1)
+							self.username.setError(errorMessage);
+						if (errorMessage.indexOf('Email') > -1)
+							self.email.setError(errorMessage);
+						break;
 				}
 			});
 			self.validationErrors.showAllMessages();
