@@ -96,6 +96,10 @@
 							</div>
 
 							<div class="box-body">
+								<ul class="list-unstyled text-danger" data-bind="visible: errors().length > 0, foreach: errors">
+									<li data-bind="text: value"></li>
+								</ul>
+
 								<fieldset>
 									<div class="form-group">
 										<label for="Weight" class="control-label">Weight:</label>

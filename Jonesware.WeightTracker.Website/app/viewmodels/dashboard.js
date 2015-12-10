@@ -92,6 +92,8 @@
 		};
 
 		self.createWeighIn = function () {
+			self.errors.removeAll();
+
 			submit.text('Loading...');
 			submit.attr('disabled', true);
 
@@ -113,7 +115,6 @@
 
 				self.newWeighInWeight(null);
 				self.newWeighInDate(null);
-				ClearErrors();
 
 				logger.log({
 					message: 'Weigh in added',
@@ -124,7 +125,6 @@
 			})
 			.fail(function (jqXHR, textStatus, errorThrown) {
 				utilities.HandleAjaxError(jqXHR, self.errors);
-				ProcessErrors();
 			})
 			.always(function () {
 				submit.attr('disabled', false);
@@ -205,28 +205,6 @@
 					}
 				});
 			}
-		}
-
-		function ProcessErrors() {
-			var observable;
-			var errorMessage;
-			$.each(self.errors(), function (key, value) {
-				observable = value.key.split('.')[1];
-				errorMessage = String(value.value);
-				switch (observable) {
-					case 'DateRecorded':
-						self.newWeighInDate.setError(errorMessage);
-						break;
-					case 'Weight':
-						self.newWeighInWeight.setError(errorMessage);
-						break;
-				}
-			});
-			self.validationErrors.showAllMessages();
-		}
-
-		function ClearErrors() {
-			self.errors.removeAll();
 		}
 
 		self.activate = function () {

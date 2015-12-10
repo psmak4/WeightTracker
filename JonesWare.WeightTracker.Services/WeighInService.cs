@@ -21,7 +21,11 @@ namespace Jonesware.WeightTracker.Services
 
 		public WeighIn CreateWeighIn(string userId, decimal weight, DateTime dateRecorded)
 		{
-			var weighIn = new WeighIn()
+			var weighIn = db.WeighIns.FirstOrDefault(w => w.UserId == userId && w.DateRecorded.Year == dateRecorded.Year && w.DateRecorded.Month == dateRecorded.Month && w.DateRecorded.Day == dateRecorded.Day);
+			if (weighIn != null)
+				throw new Exception("A weigh in for that date already exists.");
+
+			weighIn = new WeighIn()
 			{
 				UserId = userId,
 				Weight = weight,
