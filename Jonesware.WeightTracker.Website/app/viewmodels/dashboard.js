@@ -233,6 +233,8 @@
 		};
 
 		self.attached = function () {
+			window.scrollTo(0, 0);
+
 			self.getWeighIns();
 
 			self.newWeighInDate(new Date().toLocaleDateString());

@@ -10,6 +10,8 @@
 		self.validationErrors = ko.validation.group([self.username, self.password]);
 
 		self.attached = function () {
+			window.scrollTo(0, 0);
+
 			submit = $('#Submit');
 		};
 

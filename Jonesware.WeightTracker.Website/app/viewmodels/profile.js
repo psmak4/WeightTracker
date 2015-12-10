@@ -80,6 +80,8 @@
 		};
 
 		self.attached = function () {
+			window.scrollTo(0, 0);
+
 			$('#DateOfBirth').datepicker({
 				autoclose: true,
 				format: 'm/d/yyyy',
