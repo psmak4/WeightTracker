@@ -1,0 +1,51 @@
+﻿@model Jonesware.WeightTracker.WebApp.Areas.Admin.ViewModels.Dashboard.IndexViewModel
+
+@{
+	ViewBag.Title = "Dashboard";
+}
+
+<div class="row">
+	<div class="col-sm-6">
+		<div class="info-box bg-aqua">
+			<span class="info-box-icon"><i class="fa fa-fw fa-users"></i></span>
+
+			<div class="info-box-content">
+				<span class="info-box-text">Users</span>
+				<span class="info-box-number">@Model.NumUsers</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-sm-6">
+		<div class="info-box bg-green">
+			<span class="info-box-icon"><i class="fa fa-fw fa-balance-scale"></i></span>
+
+			<div class="info-box-content">
+				<span class="info-box-text">Weigh Ins</span>
+				<span class="info-box-number">@Model.NumWeighIns</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-4">
+		<div class="panel panel-primary">
+			<div class="panel-heading">Newest Users</div>
+
+			<ul class="list-group">
+				@foreach (var user in Model.NewestUsers)
+				{
+					<li class="list-group-item">
+						<h4 class="list-group-item-heading">@user.FirstName @user.LastName</h4>
+						<p class="list-group-item-text">@user.Email</p>
+					</li>
+				}
+			</ul>
+		</div>
+	</div>
+
+	<div class="col-sm-4"></div>
+
+	<div class="col-sm-4"></div>
+</div>

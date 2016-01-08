@@ -1,7 +1,5 @@
-﻿using System;
+﻿using Jonesware.WeightTracker.WebApp.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace Jonesware.WeightTracker.WebApp.Areas.Admin.ViewModels.Dashboard
 {
@@ -10,5 +8,7 @@ namespace Jonesware.WeightTracker.WebApp.Areas.Admin.ViewModels.Dashboard
 		public int NumUsers { get; set; }
 
 		public int NumWeighIns { get; set; }
+
+		public IEnumerable<ApplicationUser> NewestUsers { get; set; }
 	}
 }

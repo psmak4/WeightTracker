@@ -122,7 +122,7 @@ gulp.task('css-lib', function () {
 });
 
 gulp.task('css-app', function () {
-	return gulp.src(['Less/app.less'])
+	return gulp.src(['less/app.less'])
 		.pipe(less())
 		.pipe(sourcemaps.init())
 		.pipe(concat('app.css'))
@@ -133,8 +133,21 @@ gulp.task('css-app', function () {
 		.pipe(gulp.dest('css'));
 });
 
+gulp.task('css-admin', function () {
+	return gulp.src(['Areas/Admin/less/admin.less'])
+		.pipe(less())
+		.pipe(sourcemaps.init())
+		.pipe(concat('admin.css'))
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest('css'))
+		.pipe(minifyCss())
+		.pipe(rename('admin.min.css'))
+		.pipe(gulp.dest('css'));
+});
+
 gulp.task('watch', function () {
-	gulp.watch(['Less/**/*.less'], ['css-app']);
+	gulp.watch(['less/**/*.less'], ['css-app']);
+	gulp.watch(['Areas/Admin/less/**/*.less'], ['css-admin']);
 });
 
 gulp.task('default', function () {

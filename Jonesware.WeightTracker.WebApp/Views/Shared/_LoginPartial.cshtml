@@ -4,6 +4,10 @@
 {
 	<ul class="nav navbar-nav navbar-right">
 		<li><a href="/dashboard">Dashboard</a></li>
+		@if (User.IsInRole("Admin"))
+		{
+			<li><a href="/admin/dashboard">Admin</a></li>
+		}
 		<li class="dropdown">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-circle profileImage" src="@Html.GetSmallProfileImageUrl(User.Identity.GetUserName())" alt="@User.Identity.GetUserName()" />@User.Identity.GetFirstName() @User.Identity.GetLastName() <span class="caret"></span></a>
 			<ul class="dropdown-menu">

@@ -54,5 +54,11 @@ namespace Jonesware.WeightTracker.Services
 		{
 			return db.WeighIns.FirstOrDefault(w => w.Id == weighInId);
 		}
-    }
+
+		public int GetTotalWeighIns()
+		{
+			return db.WeighIns.Count();
+		}
+
+	}
 }
