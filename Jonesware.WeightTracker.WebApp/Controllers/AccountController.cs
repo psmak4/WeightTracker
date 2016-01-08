@@ -137,6 +137,8 @@ namespace Jonesware.WeightTracker.WebApp.Controllers
 				var result = await UserManager.CreateAsync(user, model.Password);
 				if (result.Succeeded)
 				{
+					UserManager.AddToRole(user.Id, "User");
+
 					await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
 					// For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
@@ -147,10 +149,10 @@ namespace Jonesware.WeightTracker.WebApp.Controllers
 
 					return RedirectToAction("Index", "Home");
 				}
+
 				AddErrors(result);
 			}
 
-			// If we got this far, something failed, redisplay form
 			return View(model);
 		}
 
