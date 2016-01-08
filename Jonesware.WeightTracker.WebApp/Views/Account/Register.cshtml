@@ -1,0 +1,115 @@
+﻿@using Jonesware.WeightTracker.WebApp.Models;
+@model Jonesware.WeightTracker.WebApp.Models.RegisterViewModel
+@{
+	ViewBag.Title = "Register";
+}
+
+<div class="page-header"><h1>Register</h1></div>
+
+<div class="row">
+	<div class="col-sm-7">
+		@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
+		{
+			@Html.AntiForgeryToken()
+
+			<div class="box box-solid box-blue">
+				<div class="box-header with-border">
+					<div class="box-title">Account Info</div>
+				</div>
+
+				<div class="box-body">
+					@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+					<fieldset>
+						<div class="form-group">
+							<label for="Email" class="control-label">Email:</label>
+							@Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
+							@Html.ValidationMessageFor(m => m.Email)
+						</div>
+
+						<div class="form-group">
+							<label for="Password" class="control-label">Password:</label>
+							@Html.EditorFor(m => m.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })
+							@Html.ValidationMessageFor(m => m.Password)
+						</div>
+
+						<div class="form-group">
+							<label for="ConfirmPassword" class="control-label">Confirm Password:</label>
+							@Html.EditorFor(m => m.ConfirmPassword, new { htmlAttributes = new { @class = "form-control", placeholder = "Confirm Password" } })
+							@Html.ValidationMessageFor(m => m.ConfirmPassword)
+						</div>
+					</fieldset>
+				</div>
+
+				<div class="box-header with-border">
+					<div class="box-title">Personal Info</div>
+				</div>
+
+				<div class="box-body">
+					<fieldset>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-xs-6">
+									<label for="FirstName" class="control-label">First Name:</label>
+									@Html.EditorFor(m => m.FirstName, new { htmlAttributes = new { @class = "form-control", placeholder = "First Name" } })
+									@Html.ValidationMessageFor(m => m.FirstName)
+								</div>
+								<div class="col-xs-6">
+									<label for="LastName" class="control-label">Last Name:</label>
+									@Html.EditorFor(m => m.LastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Last Name" } })
+									@Html.ValidationMessageFor(m => m.LastName)
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="row">
+								<div class="col-xs-6">
+									<label for="DateOfBirth" class="control-label">Birthdate:</label>
+									@Html.EditorFor(m => m.DateOfBirth, new { htmlAttributes = new { @class = "form-control", placeholder = "Birthdate" } })
+									@Html.ValidationMessageFor(m => m.DateOfBirth)
+								</div>
+								<div class="col-xs-6">
+									<label for="Gender" class="control-label">Gender:</label>
+									@Html.DropDownListFor(m => m.Gender, Gender.ToSelectListItems(), new { @class = "form-control" })
+									@Html.ValidationMessageFor(m => m.Gender)
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="Feet" class="control-label">Height:</label>
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="input-group">
+										@Html.EditorFor(m => m.Feet, new { htmlAttributes = new { @class = "form-control", placeholder = "Feet" } })
+										<span class="input-group-addon">feet</span>
+									</div>
+									@Html.ValidationMessageFor(m => m.Feet)
+								</div>
+								<div class="col-xs-6">
+									<div class="input-group">
+										@Html.EditorFor(m => m.Inches, new { htmlAttributes = new { @class = "form-control", placeholder = "Inches" } })
+										<span class="input-group-addon">inches</span>
+									</div>
+									@Html.ValidationMessageFor(m => m.Inches)
+								</div>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+
+				<div class="box-footer">
+					<div class="form-group">
+						<button type="submit" class="btn btn-flat bg-blue" id="Register">Register</button>
+					</div>
+				</div>
+			</div>
+		}
+	</div>
+	<div class="col-sm-5"></div>
+</div>
+
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+}

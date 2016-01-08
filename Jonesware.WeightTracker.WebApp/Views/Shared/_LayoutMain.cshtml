@@ -1,0 +1,16 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutBase.cshtml";
+}
+
+<div class="container">
+	@Html.Action("Messages", "Page")
+	@RenderBody()
+</div>
+
+@section head {
+	@RenderSection("head", required: false)
+}
+
+@section scripts {
+	@RenderSection("scripts", required: false)
+}

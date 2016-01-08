@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Jonesware.WeightTracker.WebApp.ViewModels.Page.Message>
+
+@foreach (var item in Model)
+{
+	<div class="alert @item.MessageClass alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" class="fa fa-fw fa-close"></span></button>
+		@item.Text
+	</div>
+}
