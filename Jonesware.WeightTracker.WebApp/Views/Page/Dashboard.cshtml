@@ -136,7 +136,7 @@
 				xLabelFormat: function (x) { return new Date(x).toLocaleDateString(); },
 				ykeys: ['Weight'],
 				ymin: relativeYMin,
-				ymax: 'auto',
+				ymax: @(((int)(Model.WeighIns.Max(w => w.Weight) / 1)) * 1) + 1,
 				labels: ['Weight'],
 				parseTime: true,
 				hideHover: 'auto',
