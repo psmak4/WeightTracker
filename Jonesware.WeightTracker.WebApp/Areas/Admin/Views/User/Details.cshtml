@@ -1,0 +1,31 @@
+﻿@model Jonesware.WeightTracker.WebApp.Models.ApplicationUser
+
+@{
+    ViewBag.Title = string.Format("{0} {1}", Model.FirstName, Model.LastName);
+}
+
+<section class="content-header"><h1>User Profile</h1></section>
+
+<section class="content">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="box box-primary">
+				<div class="box-body box-profile">
+					<img class="profile-user-img img-responsive img-circle" src="@Html.GetLargeProfileImageUrl(Model.Email)" alt="@Model.FirstName @Model.LastName">
+
+					<h3 class="profile-username text-center">@Model.FirstName @Model.LastName</h3>
+
+					<ul class="list-group list-group-unbordered">
+						<li class="list-group-item"><b>Email:</b> <span class="pull-right">@Model.Email</span></li>
+						<li class="list-group-item"><b>Birthdate:</b> <span class="pull-right">@Model.DateOfBirth.ToShortDateString()</span></li>
+						<li class="list-group-item"><b>Height:</b> <span class="pull-right">@(Model.Height / 12)' @(Model.Height % 12)"</span></li>
+						<li class="list-group-item"><b>Gender:</b> <span class="pull-right">@(Model.Gender == "m" ? "Male" : "Female")</span></li>
+						<li class="list-group-item"><b>Date Created:</b> <span class="pull-right">@Model.DateCreated.ToShortDateString()</span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-8"></div>
+	</div>
+</section>

@@ -1,2 +1,11 @@
+.alert {
+  margin-top: 15px;
+}
+.alert:last-child {
+  margin-bottom: 15px;
+}
+#UsersTable tr {
+  cursor: pointer;
+}
 
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFkbWluLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiJhZG1pbi5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIiXSwic291cmNlUm9vdCI6Ii9zb3VyY2UvIn0= */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFkbWluLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSIsImZpbGUiOiJhZG1pbi5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYWxlcnQge1xuICBtYXJnaW4tdG9wOiAxNXB4O1xufVxuLmFsZXJ0Omxhc3QtY2hpbGQge1xuICBtYXJnaW4tYm90dG9tOiAxNXB4O1xufVxuI1VzZXJzVGFibGUgdHIge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG4iXSwic291cmNlUm9vdCI6Ii9zb3VyY2UvIn0= */
