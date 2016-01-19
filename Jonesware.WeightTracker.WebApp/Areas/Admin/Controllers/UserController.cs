@@ -1,4 +1,7 @@
-﻿using Jonesware.WeightTracker.WebApp.Areas.Admin.ViewModels.User;
+﻿using Jonesware.WeightTracker.Data.Contexts;
+using Jonesware.WeightTracker.Services;
+using Jonesware.WeightTracker.Services.Interfaces;
+using Jonesware.WeightTracker.WebApp.Areas.Admin.ViewModels.User;
 using Jonesware.WeightTracker.WebApp.Controllers;
 using System;
 using System.Linq;
@@ -8,8 +11,11 @@ namespace Jonesware.WeightTracker.WebApp.Areas.Admin.Controllers
 {
 	public class UserController : BaseController
 	{
+		private IWeighInService weighInService { get; set; }
+
 		public UserController()
 		{
+			weighInService = new WeighInService(new WeightTrackerEntities());
 		}
 
 		public ActionResult Index()
@@ -31,7 +37,13 @@ namespace Jonesware.WeightTracker.WebApp.Areas.Admin.Controllers
 				return RedirectToAction("Index");
 			}
 
-			return View(user);
+			var model = new DetailsViewModel()
+			{
+				User = user,
+				WeighIns = weighInService.GetUserWeighIns(user.Id)
+			};
+
+			return View(model);
 		}
 	}
 }
