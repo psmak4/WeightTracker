@@ -53,6 +53,40 @@
 			</div>
 		</div>
 
-		<div class="col-md-6"></div>
+		<div class="col-md-6">
+			<div class="box box-primary box-solid">
+				<div class="box-header">
+					<div class="box-title">Most Recent Weigh Ins</div>
+				</div>
+
+				<div class="box-body">
+					<table class="table table-striped table-hover">
+						<thead>
+							<tr>
+								<th class="text-center">User</th>
+								<th class="text-center">Date</th>
+								<th class="text-center">Weight (lbs)</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var weighIn in Model.MostRecentWeighIns)
+							{
+								<tr>
+									<td>@weighIn.User.FirstName @weighIn.User.LastName</td>
+									<td class="text-center">@weighIn.DateRecorded.ToLongDateString()</td>
+									<td class="text-center">@weighIn.Weight.ToString("#.##")</td>
+								</tr>
+							}
+						</tbody>
+						<tfoot>
+							<tr>
+								<td></td>
+								<td></td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+		</div>
 	</div>
 </section>

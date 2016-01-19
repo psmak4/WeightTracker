@@ -60,5 +60,9 @@ namespace Jonesware.WeightTracker.Services
 			return db.WeighIns.Count();
 		}
 
+		public IEnumerable<WeighIn> GetMostRecentWeighIns()
+		{
+			return db.WeighIns.OrderByDescending(w => w.DateRecorded).Take(10);
+		}
 	}
 }

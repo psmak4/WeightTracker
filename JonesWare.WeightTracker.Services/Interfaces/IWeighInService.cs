@@ -15,5 +15,7 @@ namespace Jonesware.WeightTracker.Services.Interfaces
 		WeighIn GetWeighIn(int weighInId);
 
 		int GetTotalWeighIns();
+
+		IEnumerable<WeighIn> GetMostRecentWeighIns();
 	}
 }

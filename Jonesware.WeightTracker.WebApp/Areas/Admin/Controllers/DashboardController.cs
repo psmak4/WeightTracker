@@ -24,7 +24,8 @@ namespace Jonesware.WeightTracker.WebApp.Areas.Admin.Controllers
 			{
 				NumUsers = UserManager.Users.Count(),
 				NumWeighIns = weighInService.GetTotalWeighIns(),
-				NewestUsers = UserManager.Users.OrderByDescending(u => u.DateCreated).Take(8)
+				NewestUsers = UserManager.Users.OrderByDescending(u => u.DateCreated).Take(8),
+				MostRecentWeighIns = weighInService.GetMostRecentWeighIns()
 			};
 
 			return View(model);
