@@ -16,6 +16,6 @@ namespace Jonesware.WeightTracker.WebApp.ViewModels.WeighIn
 		[DataType(DataType.Date)]
 		[DisplayName("Date Recorded")]
 		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-		public DateTime DateRecorded { get; set; }
+		public DateTime? DateRecorded { get; set; }
 	}
 }

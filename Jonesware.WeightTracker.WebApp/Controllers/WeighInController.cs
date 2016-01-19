@@ -20,7 +20,6 @@ namespace Jonesware.WeightTracker.WebApp.Controllers
 		public ActionResult Create()
 		{
 			var model = new CreateViewModel();
-			model.DateRecorded = DateTime.Now;
 
 			return View(model);
 		}
@@ -32,7 +31,7 @@ namespace Jonesware.WeightTracker.WebApp.Controllers
 			{
 				try
 				{
-					var weighIn = weighInService.CreateWeighIn(User.Identity.GetUserId(), model.Weight, model.DateRecorded);
+					var weighIn = weighInService.CreateWeighIn(User.Identity.GetUserId(), model.Weight, model.DateRecorded.Value);
 					if (weighIn == null)
 						throw new Exception("An erorr has occurred");
 
