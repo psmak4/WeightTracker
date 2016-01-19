@@ -7,7 +7,7 @@
 <div class="page-header"><h1>Account</h1></div>
 
 <div class="row">
-	<div class="col-lg-4 col-sm-5">
+	<div class="col-lg-4">
 		<div class="box box-solid box-blue">
 			<div class="box-body">
 				<img class="profile-user-img img-responsive img-circle" src="@Html.GetLargeProfileImageUrl(User.Identity.GetUserName())" alt="@User.Identity.GetFirstName() @User.Identity.GetLastName()">
@@ -31,7 +31,7 @@
 		</div>
 	</div>
 
-	<div class="col-lg-6 col-sm-7">
+	<div class="col-lg-8">
 		@using (Html.BeginForm())
 		{
 			<div class="box box-solid box-blue">
@@ -93,7 +93,7 @@
 					</fieldset>
 
 					<input type="hidden" name="Theme" id="Theme" value="blue" />
-					<button type="submit" class="btn btn-flat bg-blue" id="Submit">Submit</button>
+					<button type="submit" class="btn btn-flat bg-blue" id="Submit">Save Changes</button>
 				</div>
 
 				@*<div class="box-header with-border">
@@ -111,9 +111,5 @@
 				</div>*@
 			</div>
 		}
-	</div>
-
-	<div class="col-lg-2 visible-lg">
-		<div class="center-block" style="background-color: #666; color: #fff; height: 250px;">Width: 160px</div>
 	</div>
 </div>
