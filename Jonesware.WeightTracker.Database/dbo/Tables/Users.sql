@@ -17,8 +17,9 @@
     [DateOfBirth]          DATETIME       NULL,
     [Height]    INT            NULL,
     [Gender]             CHAR (1) NULL,
-    [DateCreated]          DATETIME       NULL,
+    [DateCreated]          DATETIME2       NULL,
     [Theme]            NVARCHAR (20) NULL,
     [Discriminator]        NVARCHAR (128) NOT NULL,
+    [GoalWeight] DECIMAL(4, 1) NULL, 
     CONSTRAINT [PK_dbo.Users] PRIMARY KEY CLUSTERED ([Id] ASC)
 )

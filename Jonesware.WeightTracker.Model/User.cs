@@ -39,6 +39,8 @@ namespace Jonesware.WeightTracker.Model
         public Nullable<System.DateTime> DateOfBirth { get; set; }
         public Nullable<int> Height { get; set; }
         public string Gender { get; set; }
+        public string Theme { get; set; }
+        public Nullable<decimal> GoalWeight { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WeighIn> WeighIns { get; set; }

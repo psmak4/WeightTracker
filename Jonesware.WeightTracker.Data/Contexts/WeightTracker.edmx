@@ -27,7 +27,9 @@
           <Property Name="Height" Type="int" />
           <Property Name="Gender" Type="char" MaxLength="1" />
           <Property Name="DateCreated" Type="datetime" />
+          <Property Name="Theme" Type="nvarchar" MaxLength="20" />
           <Property Name="Discriminator" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="GoalWeight" Type="decimal" Precision="4" Scale="1" />
         </EntityType>
         <EntityType Name="WeighIns">
           <Key>
@@ -94,6 +96,8 @@
           <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
           <Property Name="Height" Type="Int32" />
           <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Theme" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="GoalWeight" Type="Decimal" Precision="4" Scale="1" />
         </EntityType>
         <EntityType Name="WeighIn">
           <Key>
@@ -126,6 +130,8 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="Jonesware.WeightTracker.Model.User">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="GoalWeight" ColumnName="GoalWeight" />
+                <ScalarProperty Name="Theme" ColumnName="Theme" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="Height" ColumnName="Height" />
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
