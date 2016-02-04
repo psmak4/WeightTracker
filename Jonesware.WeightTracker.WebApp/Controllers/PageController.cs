@@ -42,8 +42,8 @@ namespace Jonesware.WeightTracker.WebApp.Controllers
 				model.BodyMassIndex = bodyFat.BMI.Value;
 				model.BodyFatPercentage = bodyFat.Value;
 
-				model.ChartMin = (weighIns.Min(w => w.Weight) / 5) * 5;
-				model.ChartMax = ((weighIns.Max(w => w.Weight) / 5) * 5) + 5;
+				model.ChartMin = (int)(weighIns.Min(w => w.Weight) / 5) * 5;
+				model.ChartMax = (int)((weighIns.Max(w => w.Weight) / 5) * 5) + 5;
 			}
 			else
 			{

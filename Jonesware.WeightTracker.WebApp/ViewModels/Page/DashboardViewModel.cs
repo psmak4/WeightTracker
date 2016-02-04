@@ -10,7 +10,7 @@ namespace Jonesware.WeightTracker.WebApp.ViewModels.Page
 		public decimal? BodyMassIndex { get; set; }
 		public decimal? BodyFatPercentage { get; set; }
 		public string BodyFatIcon { get; set; }
-		public decimal ChartMin { get; set; }
-		public decimal ChartMax { get; set; }
+		public int ChartMin { get; set; }
+		public int ChartMax { get; set; }
 	}
 }
