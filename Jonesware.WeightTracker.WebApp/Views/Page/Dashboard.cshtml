@@ -59,6 +59,7 @@
 					<div class="h2">Hi, @User.Identity.GetFirstName()!</div>
 					<div class="h3">It looks like you haven't recorded any weigh ins yet.</div>
 					<div class="h3">Let's do something about that.</div>
+					<a href="@Url.Action("Create", "WeighIn")" class="btn btn-flat btn-lg bg-blue">Get Started</a>
 				</div>
 			</div>
 		}
@@ -131,34 +132,37 @@
 					<text>{ Weight:@weighIn.Weight, DateRecorded:'@weighIn.DateRecorded.ToString("yyyy-MM-dd")' },</text>
 				}
 			];
-			var relativeYMin = @(((int)(Model.WeighIns.Min(w => w.Weight) / 5)) * 5);
-			var weighInChart = new Morris.Line({
-				element: 'WeighInsChart',
-				data: weighInsData,
-				xkey: 'DateRecorded',
-				xLabels: 'day',
-				xLabelFormat: function (x) { return new Date(x).toLocaleDateString(); },
-				ykeys: ['Weight'],
-				ymin: relativeYMin,
-				ymax: @(((int)(Model.WeighIns.Max(w => w.Weight) / 5)) * 5) + 5,
-				labels: ['Weight'],
-				parseTime: true,
-				hideHover: 'auto',
-				axes: true,
-				goals: [225.0],
-				goalLineColors: ['#0073B7'],
-				dateFormat: function (x) { return new Date(x).toLocaleDateString(); },
-				resize: true,
-				smooth: true
-			});
+			var relativeYMin = @Model.ChartMin;
 
-			$('#WeighInsTable').dataTable();
+			if (weighInsData.length > 0) {
+				var weighInChart = new Morris.Line({
+					element: 'WeighInsChart',
+					data: weighInsData,
+					xkey: 'DateRecorded',
+					xLabels: 'day',
+					xLabelFormat: function (x) { return new Date(x).toLocaleDateString(); },
+					ykeys: ['Weight'],
+					ymin: relativeYMin,
+					ymax: @Model.ChartMax,
+					labels: ['Weight'],
+					parseTime: true,
+					hideHover: 'auto',
+					axes: true,
+					goals: [225.0],
+					goalLineColors: ['#0073B7'],
+					dateFormat: function (x) { return new Date(x).toLocaleDateString(); },
+					resize: true,
+					smooth: true
+				});
 
-			$('#toggleChart').click(function (event) {
-				event.preventDefault();
-				weighInChart.options.ymin = weighInChart.options.ymin == 0 ? relativeYMin : 0;
-				weighInChart.setData(weighInsData);
-			});
+				$('#WeighInsTable').dataTable();
+
+				$('#toggleChart').click(function (event) {
+					event.preventDefault();
+					weighInChart.options.ymin = weighInChart.options.ymin == 0 ? relativeYMin : 0;
+					weighInChart.setData(weighInsData);
+				});
+			}
 		});
 	</script>
 }

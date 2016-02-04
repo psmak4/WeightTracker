@@ -31,13 +31,25 @@ namespace Jonesware.WeightTracker.WebApp.Controllers
 		{
 			var model = new DashboardViewModel();
 			var weighIns = weighInService.GetUserWeighIns(User.Identity.GetUserId()).OrderByDescending(w => w.DateRecorded);
-			decimal? weight = weighIns.Any() ? weighIns.First().Weight : new decimal?();
-			var bodyFat = new BodyFatPercentage(weight.Value, User.Identity.GetHeight(), GetAge(User.Identity.GetDateOfBirth()).Value, User.Identity.GetGender());
-			
 			model.WeighIns = GetWeighInsViewModels(weighIns);
-			model.MostRecentWeight = weight;
-			model.BodyMassIndex = bodyFat.BMI.Value;
-			model.BodyFatPercentage = bodyFat.Value;
+
+			if (weighIns.Any())
+			{
+				decimal? weight = weighIns.Any() ? weighIns.First().Weight : new decimal?();
+				model.MostRecentWeight = weight;
+
+				var bodyFat = new BodyFatPercentage(weight.Value, User.Identity.GetHeight(), GetAge(User.Identity.GetDateOfBirth()).Value, User.Identity.GetGender());
+				model.BodyMassIndex = bodyFat.BMI.Value;
+				model.BodyFatPercentage = bodyFat.Value;
+
+				model.ChartMin = (weighIns.Min(w => w.Weight) / 5) * 5;
+				model.ChartMax = ((weighIns.Max(w => w.Weight) / 5) * 5) + 5;
+			}
+			else
+			{
+				model.ChartMin = 0;
+				model.ChartMax = 0;
+			}
 			model.BodyFatIcon = User.Identity.GetGender() == "m" ? "fa-male" : "fa-female";
 
 			return View(model);

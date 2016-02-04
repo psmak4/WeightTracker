@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -132,7 +133,8 @@ namespace Jonesware.WeightTracker.WebApp.Controllers
 					DateOfBirth = model.DateOfBirth.Value,
 					Gender = model.Gender,
 					Height = ((model.Feet.Value * 12) + model.Inches.Value),
-					Theme = "Blue"
+					Theme = "Blue",
+					DateCreated = DateTime.Now
 				};
 				var result = await UserManager.CreateAsync(user, model.Password);
 				if (result.Succeeded)
@@ -147,7 +149,7 @@ namespace Jonesware.WeightTracker.WebApp.Controllers
 					var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
 					await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-					return RedirectToAction("Index", "Home");
+					return RedirectToAction("Dashboard", "Page");
 				}
 
 				AddErrors(result);

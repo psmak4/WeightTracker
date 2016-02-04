@@ -17,7 +17,7 @@
     [DateOfBirth]          DATETIME       NULL,
     [Height]    INT            NULL,
     [Gender]             CHAR (1) NULL,
-    [DateCreated]          DATETIME2       NULL,
+    [DateCreated]          DATETIME       NULL,
     [Theme]            NVARCHAR (20) NULL,
     [Discriminator]        NVARCHAR (128) NOT NULL,
     [GoalWeight] DECIMAL(4, 1) NULL, 
